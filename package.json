@@ -1,11 +1,11 @@
 {
-  "name": "vanilla-app-template",
+  "name": "project-W3CanD01T",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/vanilla-app-template/",
+    "build": "vite build --base=/project-W3CanD01T/",
     "preview": "vite preview"
   },
   "devDependencies": {
