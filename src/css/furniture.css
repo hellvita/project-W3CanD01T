@@ -1,0 +1,52 @@
+@media only screen and (min-width: 375px) {
+  .furniture-list {
+    margin-top: 40px;
+    margin-bottom: 32px;
+  }
+  .furniture-list-item:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  .furniture-img {
+    border-radius: 8px;
+    margin-bottom: 16px;
+    height: 277px;
+  }
+  .furniture-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #080c09;
+    margin-bottom: 8px;
+  }
+  .furniture-color-list {
+    display: flex;
+    gap: 16px;
+  }
+  .furniture-color-item {
+    width: 24px;
+    height: 24px;
+    border-radius: 64px;
+    background-color: black;
+  }
+  .furniture-price {
+  }
+  .furniture-more-btn {
+  }
+  .furniture-btn {
+  }
+  .show-more-btn {
+  }
+} /* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+} /* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 64px;
+  }
+}
