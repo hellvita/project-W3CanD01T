@@ -9,3 +9,6 @@
 @import url('./faq.css');
 @import url('./feedback.css');
 @import url('./footer.css');
+
+@import url('izitoast/dist/css/iziToast.min.css');
+@import url('accordion-js/dist/accordion.min.css');
