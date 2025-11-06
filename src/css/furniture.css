@@ -2,6 +2,9 @@
   margin-top: 40px;
   margin-bottom: 32px;
 }
+.furniture-list-item {
+  min-height: 456px;
+}
 .furniture-list-item:not(:last-child) {
   margin-bottom: 24px;
 }
@@ -11,14 +14,12 @@
 .furniture-img {
   border-radius: 8px;
   margin-bottom: 16px;
-  height: 277px;
 }
 .furniture-title {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
+  font-family: 'Raleway SemiBold', sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  color: #080c09;
+  color: var(--color-scheme-1-text);
   margin-bottom: 8px;
 }
 .furniture-color-list {
@@ -44,24 +45,22 @@
 }
 
 .furniture-color-radio input:checked + .color-circle {
-  border-color: #555;
-  box-shadow: 0 0 0 2px #aaa;
+  border: 3px solid #555;
   transform: scale(1.05);
 }
 .furniture-price {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
+  font-family: 'Raleway SemiBold', sans-serif;
   font-size: 20px;
   line-height: 1.6;
-  color: #080c09;
+  color: var(--color-scheme-1-text);
   margin-bottom: 16px;
 }
 .furniture-more-btn {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
+  font-family: 'Raleway Medium', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #080c09;
+  color: var(--color-neutral-darkest);
+  background-color: var(--opacity-neutral-darkest-5);
 
   border-radius: 100px;
   padding: 10px 24px;
@@ -71,7 +70,6 @@
   box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
     inset 0 -2px 1px 0 rgba(8, 12, 9, 0.05),
     inset 0 0 0 1px rgba(8, 12, 9, 0.05);
-  background: rgba(8, 12, 9, 0.05);
   transition: all 0.3s ease;
 }
 
@@ -82,11 +80,10 @@
 }
 
 .show-more-btn {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
+  font-family: 'Raleway Medium', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #fff;
+  color: var(--color-scheme-1-background);
 
   border-radius: 100px;
   padding: 10px 24px;
@@ -97,7 +94,7 @@
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  background: #6b0609;
+  background-color: var(--color-madang);
   transition: all 0.3s ease;
 }
 .show-more-btn:hover,
@@ -118,10 +115,12 @@
     flex-wrap: wrap;
     gap: 24px;
   }
-
+  .furniture-list-item {
+    width: calc((100% - 24px) / 2);
+    min-height: 460px;
+  }
   .furniture-img {
     width: 340px;
-    height: 281px;
   }
 
   .furniture-more-btn {
@@ -135,9 +134,12 @@
     column-gap: 24px;
     row-gap: 40px;
   }
+  .furniture-list-item {
+    min-height: 435px;
+    width: calc((100% - 72px) / 4);
+  }
   .furniture-img {
     width: 310px;
-    height: 256px;
   }
 
   .furniture-more-btn {
