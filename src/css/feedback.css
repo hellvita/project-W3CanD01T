@@ -1,0 +1,230 @@
+
+.feedback {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  height: 637px;
+  background: var(--color-scheme-1-background);
+}
+
+.feedback-title {
+  font: 700 48px / 1.2 var(--font-family);
+  letter-spacing: 0.01em;
+  color: var(--color-scheme-1-text);  
+}
+
+.feedback-subtitle {
+  font: 400 18px / 1.6 var(--font-family);
+  color: var(--color-scheme-1-text);
+}
+
+.feedback-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 64px;
+  height: 80px; 
+}
+
+.feedback-loader.is-hidden {
+  display: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--color-border-light);
+  border-top: 5px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.feedback-slider {
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.feedback-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+.feedback-card__rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.feedback-card__stars svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-star);
+}
+
+.feedback-card__score {
+  font-family: 'Raleway SemiBold', sans-sansserif;
+  font-size: 18px;
+  color: var(--color-title);
+}
+
+.feedback-card__text {
+  font-family: 'Raleway Regular', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.feedback-card__author {
+  font-family: 'Raleway Medium', sans-serif;
+  font-size: 16px;
+  color: var(--color-title);
+}
+
+.swiper-pagination {
+  margin-top: 32px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-border-light);
+  opacity: 1;
+  transition: background-color 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+}
+
+.feedback-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.feedback-btn-prev,
+.feedback-btn-next {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-btn-prev:hover,
+.feedback-btn-next:hover {
+  background-color: var(--color-bg-hover);
+  transform: scale(1.05);
+}
+
+.feedback-btn-prev:disabled,
+.feedback-btn-next:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.feedback-btn-prev svg,
+.feedback-btn-next svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-primary);
+}
+
+
+@media (max-width: 767px) {
+  .feedback {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .feedback-title {
+    font-size: 24px;
+  }
+  .feedback-subtitle {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  .feedback-card {
+    padding: 24px 16px;
+    max-width: 280px;
+  }
+  .feedback-nav {
+    margin-top: 32px;
+  }
+   .feedback-loader {
+    height: 60px;       
+    margin-bottom: 48px;
+  }
+  .loader {
+    width: 36px;
+    height: 36px;
+    border-width: 4px;  
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .feedback {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .feedback-title {
+    font-size: 30px;
+  }
+  .feedback-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+  .feedback-card {
+    max-width: 320px;
+  }
+  .feedback-nav {
+    margin-top: 40px;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .feedback {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .feedback-card {
+    max-width: 360px;
+  }
+  .feedback-nav {
+    margin-top: 56px;
+  }
+}
