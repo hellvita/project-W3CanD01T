@@ -1,20 +1,21 @@
 .hero-section {
     background-image: image-set(
-        url('../img/hero/hero-baner-mobile-min.png') 1x,
-        url('../img/hero/hero-baner-mobile2x-min.png') 2x
+        url('../img/hero/hero-baner-mobile-min.webp') 1x,
+        url('../img/hero/hero-baner-mobile2x-min.webp') 2x
     );
     background-size: cover;
-    background-position: 50%;
+    background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
     min-height: 620px;
+    width: 100%;
 }
 
 .hero-title {
     font-size: 40px;
     line-height: 1.2;
     letter-spacing: 0.01em;
-    color: white;
+    color: var(--color-white);
     padding: 136px 0 24px 0;
 }
 
@@ -22,30 +23,44 @@
     font-size: 18px;
     line-height: 1.6;
     letter-spacing: 0.02em;
-    color: #fff;
+    color: var(--color-white);
     padding-bottom: 32px;
 }
 
-.hero-btn {
+.hero-link {
+    display: inline-block;
+    text-align: center;
+    line-height: 46px;
     border-radius: 100px;
     width: 100%;
     height: 46px;
-    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), 
-        inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), 
-        inset 0 0 0 1px rgba(8, 12, 9, 0.15), 
-        inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), 
-        inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-    background: #6b0609;
-    color: #fff;
+    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), 
+                inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), 
+                inset 0 0 0 1px var(--opacity-neutral-darkest-15), 
+                inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), 
+                inset 0 32px 24px 0 var(--opacity-white-5);
+    background: var(--color-madang);
+    color: var(--color-white);
     border: none;
+}
+.hero-link:hover,
+.hero-link:focus {
+    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), 
+                inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), 
+                inset 0 0 0 1px var(--opacity-neutral-darkest-15), 
+                inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), 
+                inset 0 32px 24px 0 var(--opacity-white-5);
+    background: var(--color-madang);
+    opacity: 0.5;
+    transition: opacity 250ms ease-in-out;
 }
 
 
 @media screen and (min-width: 768px) {
     .hero-section {
         background-image: image-set(
-            url('../img/hero/hero-baner-tablet-min.png') 1x,
-            url('../img/hero/hero-baner-tablet2x-min.png') 2x
+            url('../img/hero/hero-baner-tablet-min.webp') 1x,
+            url('../img/hero/hero-baner-tablet2x-min.webp') 2x
             );
             min-height: 396px;
         }
@@ -57,15 +72,15 @@
             width: 560px;
         }
     
-        .hero-btn {
+        .hero-link {
             width: 209px;
         }
 }
 @media screen and (min-width: 1440px) {
     .hero-section {
         background-image: image-set(
-            url('../img/hero/hero-baner-desktop-min.png') 1x,
-            url('../img/hero/hero-baner-desktop2x-min.png') 2x
+            url('../img/hero/hero-baner-desktop-min.webp') 1x,
+            url('../img/hero/hero-baner-desktop2x-min.webp') 2x
             );
             min-height: 507px;
         }
