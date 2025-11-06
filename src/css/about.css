@@ -1,9 +1,8 @@
 .about-us {
-    background: #f0e6e6;
+    background-color: var(--color-madang-lightest);
     width: 375px;
     height: 887px;
 }
-
 .container-about-us {
     width: 335px;
     height: 759px;
@@ -11,69 +10,57 @@
     padding-top: 64px;
     padding-bottom: 64px;
 }
-
 .container-about-us-text {
     width: 335px;
     height: 299px;
     margin-bottom: 24px;
 }
-
 .about-us-title {
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
+    font-family: "Raleway Bold", sans-serif;
     font-size: 36px;
     line-height: 1.2;
     letter-spacing: 0.01em;
-    color: #080c09;
+    color: var(--color-neutral-darkest);
     margin-bottom: 24px;
 }
-
 .about-us-text {
-    font-family: "Raleway", sans-serif;
-    font-weight: 400;
+    font-family: "Raleway Regular", sans-serif;
     font-size: 18px;
     line-height: 1.6;
-    color: #080c09;
+    color: var(--color-neutral-darkest);
 }
-
 .about-us-picture {
     border-radius: 8px;
     width: 335px;
     height: 436px;
 }
-
 @media screen and (min-width: 768px) {
     .about-us {
         width: 768px;
         height: 707px;
     }
-    
     .container-about-us {
         width: 704px;
         height: 643px;
         padding-top: 32px;
         padding-bottom: 32px;
     }
-    
     .container-about-us-text {
         width: 704px;
         height: 183px;
         margin-bottom: 24px;
     }
-    
     .about-us-picture {
         width: 704px;
     }
 }
-
 @media screen and (min-width: 1440px) {
 .about-us {
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-        border: 1px solid #000;
         width: 1440px;
         height: 564px;
+        padding-top: 64px;
+        padding-bottom: 64px;
     }
-
     .container-about-us {
         width: 1312px;
         height: 436px;
@@ -82,15 +69,11 @@
         justify-content: flex-start;
         flex-direction: row;
         gap: 24px;
-        margin-top: 64px;
-        margin-bottom: 64px;
     }
-
     .container-about-us-text {
         width: 644px;
         height: 198px;
     }
-
     .about-us-picture {
         border-radius: 8px;
         width: 644px;
