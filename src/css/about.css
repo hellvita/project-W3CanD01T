@@ -1,14 +1,14 @@
 .about-us {
     background-color: var(--color-madang-lightest);
-    width: 375px;
     height: 887px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    width: 100%;
 }
 .container-about-us {
     width: 335px;
     height: 759px;
     max-width: 1318px;
-    padding-top: 64px;
-    padding-bottom: 64px;
 }
 .container-about-us-text {
     width: 335px;
@@ -30,20 +30,19 @@
     color: var(--color-neutral-darkest);
 }
 .about-us-picture {
-    border-radius: 8px;
-    width: 335px;
-    height: 436px;
+    max-width: 335px;
 }
 @media screen and (min-width: 768px) {
     .about-us {
-        width: 768px;
         height: 707px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        width: 100%;
     }
     .container-about-us {
         width: 704px;
         height: 643px;
-        padding-top: 32px;
-        padding-bottom: 32px;
+        
     }
     .container-about-us-text {
         width: 704px;
@@ -51,15 +50,15 @@
         margin-bottom: 24px;
     }
     .about-us-picture {
-        width: 704px;
+        max-width: 704px;
     }
 }
 @media screen and (min-width: 1440px) {
 .about-us {
-        width: 1440px;
         height: 564px;
         padding-top: 64px;
         padding-bottom: 64px;
+        width: 100%;
     }
     .container-about-us {
         width: 1312px;
@@ -71,12 +70,10 @@
         gap: 24px;
     }
     .container-about-us-text {
-        width: 644px;
+        max-width: 644px;
         height: 198px;
     }
     .about-us-picture {
-        border-radius: 8px;
-        width: 644px;
-        height: 436px;
+        max-width: 644px;
     }
 }
