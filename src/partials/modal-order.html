@@ -1,0 +1,42 @@
+<div class="backdrop" data-modal>
+  <div class="modal">
+    <button type="button" class="modal-close-btn" data-modal-close>✕</button>
+
+    <h2 class="modal-title">Замовити</h2>
+
+    <form id="orderForm" class="order-form">
+      <label class="form-label">
+        Ім’я*
+        <input
+          type="text"
+          name="name"
+          placeholder="Дмитро"
+          required
+          class="form-input"
+        />
+      </label>
+
+      <label class="form-label">
+        Телефон*
+        <input
+          type="tel"
+          name="phone"
+          placeholder="+38 099 123 22 11"
+          required
+          class="form-input"
+        />
+      </label>
+
+      <label class="form-label">
+        Коментар
+        <textarea
+          name="comment"
+          placeholder="Введіть ваш коментар"
+          class="form-textarea"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="modal-submit-btn">Надіслати заявку</button>
+    </form>
+  </div>
+</div>
