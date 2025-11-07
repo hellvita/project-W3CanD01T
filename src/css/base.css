@@ -21,6 +21,7 @@
   --opacity-white-40: rgba(255, 255, 255, 0.4);
   --opacity-white-50: rgba(255, 255, 255, 0.5);
   --opacity-white-60: rgba(255, 255, 255, 0.6);
+  --opacity-neutral-darkest-025: rgba(8, 12, 9, 0.025);
   --opacity-neutral-darkest-5: rgba(8, 12, 9, 0.05);
   --opacity-neutral-darkest-10: rgba(8, 12, 9, 0.1);
   --opacity-neutral-darkest-15: rgba(8, 12, 9, 0.15);
@@ -33,6 +34,7 @@
   --color-madang-lighter: #e1cdcd;
   --color-madang-light: #975052;
   --color-madang: #6b0609;
+  --color-madang-50: rgba(107, 6, 9, 0.5);
   --color-madang-dark: #550407;
   --color-madang-darker: #2a0203;
   --color-madang-darkest: #200102;
@@ -58,6 +60,10 @@ main {
   flex-grow: 1;
 }
 
+button {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: 'Raleway Regular';
   font-display: swap;
@@ -80,4 +86,49 @@ main {
   font-family: 'Raleway Bold';
   font-display: swap;
   src: url('/fonts/Raleway-Bold.woff2') format('woff2');
+}
+
+.button-main {
+  font-family: 'Raleway Medium', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 100px;
+  transition: color 250ms ease-in-out, background-color 250ms ease-in-out,
+    transform 250ms ease-in-out;
+}
+
+.button-main:hover,
+.button-main:focus {
+  transform: scale(1.01);
+}
+
+.button-main.btn--grey {
+  color: var(--color-neutral-darkest);
+  background-color: var(--opacity-neutral-darkest-5);
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 var(--opacity-neutral-darkest-5),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-5);
+}
+
+.button-main.btn--grey:hover,
+.button-main.btn--grey:focus {
+  background-color: var(--opacity-neutral-darkest-025);
+}
+
+.button-main.btn--red {
+  color: var(--color-scheme-1-background);
+  background: var(--color-madang);
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+}
+
+.button-main.btn--red:hover,
+.button-main.btn--red:focus {
+  color: var(--color-neutral-darkest);
+  background: var(--color-madang-50);
 }
