@@ -25,7 +25,6 @@ function createFeedbackCard(feedback) {
     <article class="feedback-card" aria-label="Відгук клієнта">
       <div class="feedback-card__stars-wrapper">
         <div class="feedback-card__stars" data-rating="${rating}"></div>
-        <span class="feedback-card__score">${rating}</span>
       </div>
       <p class="feedback-card__text">${feedback.descr}</p>
       <p class="feedback-card__author">${feedback.name}</p>
