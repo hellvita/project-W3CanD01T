@@ -1,9 +1,4 @@
-body.no-scroll {
-  overflow: hidden;
-  font-family: 'Raleway Regular', sans-serif;
-}
-
-.backdrop {
+.modal-order-backdrop {
   position: fixed;
   inset: 0;
   background-color: var(--opacity-neutral-darkest-50);
@@ -16,17 +11,19 @@ body.no-scroll {
   z-index: 1000;
 }
 
-.backdrop.is-hidden {
+.modal-order-backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
-.modal {
+.modal-order {
+  font-family: 'Raleway Regular', sans-serif;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 48px;
   background-color: var(--color-scheme-1-background);
   border-radius: 8px;
   padding: 64px 20px 32px;
@@ -60,7 +57,7 @@ body.no-scroll {
   fill: var(--color-madang);
 }
 
-.modal-title {
+.modal-order-title {
   font-family: 'Raleway Bold', sans-serif;
   font-size: 36px;
   line-height: 1.2;
@@ -69,7 +66,7 @@ body.no-scroll {
   letter-spacing: 0.01em;
 }
 
-.order-form {
+.modal-order-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -133,18 +130,21 @@ body.no-scroll {
 
 .modal-submit-btn {
   width: 100%;
-  height: 46px;
   align-self: center;
 }
-
+@media only screen and (min-width: 375px) {
+  .modal-order {
+    min-width: 335px;
+  }
+}
 @media only screen and (min-width: 768px) {
-  .modal {
+  .modal-order {
     max-width: 704px;
     padding: 64px 32px;
     gap: 48px;
   }
 
-  .modal-title {
+  .modal-order-title {
     font-size: 36px;
   }
 
@@ -164,13 +164,13 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 1440px) {
-  .modal {
+  .modal-order {
     max-width: 866px;
     padding: 64px;
     gap: 48px;
   }
 
-  .modal-title {
+  .modal-order-title {
     font-size: 48px;
   }
 }

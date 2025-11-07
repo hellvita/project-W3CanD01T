@@ -1,5 +1,5 @@
-<div class="backdrop" data-modal>
-  <div class="modal">
+<div class="modal-order-backdrop" data-modal>
+  <div class="modal-order">
     <button
       type="button"
       class="modal-close-btn"
@@ -11,9 +11,9 @@
       </svg>
     </button>
 
-    <h2 class="modal-title">Замовити</h2>
+    <h2 class="modal-order-title">Замовити</h2>
 
-    <form class="order-form">
+    <form class="modal-order-form" data-order-form>
       <label class="form-label">
         Ім’я*
         <input
@@ -22,6 +22,7 @@
           class="form-input"
           placeholder="Дмитро"
           required
+          data-input-name
         />
       </label>
 
@@ -35,6 +36,7 @@
           pattern="[+][0-9]+"
           inputmode="tel"
           required
+          data-input-phone
         />
       </label>
 
@@ -44,10 +46,15 @@
           name="comment"
           class="form-textarea"
           placeholder="Введіть ваш коментар"
+          data-input-comment
         ></textarea>
       </label>
 
-      <button type="submit" class="button-main btn--red modal-submit-btn">
+      <button
+        type="submit"
+        class="button-main btn--red modal-submit-btn"
+        data-form-submit
+      >
         Надіслати заявку
       </button>
     </form>
