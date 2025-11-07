@@ -7,6 +7,11 @@ picture{
     padding: 64px 0;
 }
 
+.title-cntr{
+  max-width: 335px;
+  margin: 0 auto;
+}
+
 .categories-title{
     font-weight: 700;
 font-size: 36px;
@@ -90,6 +95,10 @@ color: #fff;
 
 
 @media screen and (min-width: 768px){
+.title-cntr{
+    max-width: 704px;
+}
+
     .categories {
 max-width: 704px;
 gap: 24px;}
@@ -101,6 +110,9 @@ gap: 24px;}
 }
 
 @media screen and (min-width: 1440px){
+    .title-cntr{
+    max-width: 1312px;
+}
     .categories {
 max-width: 1312px;
 gap: 24px;}
