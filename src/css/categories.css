@@ -3,7 +3,7 @@
 }
 
 .furniture{
-    padding: 64px 0;
+    padding: 48px 20px;
 }
 
 .categories-title{
@@ -12,7 +12,7 @@ font-size: 36px;
 /* line-height: 43px; */ 
 line-height: 1.2;
 letter-spacing: 0.01em;
-color: #080c09;
+color: var(--color-neutral-darkest);
 margin-bottom: 16px;
 font-family: "Raleway Bold", sans-serif;
 }
@@ -22,7 +22,7 @@ font-size: 18px;
 
 /* line-height: 29px; */ 
 line-height: 1.6;
-color: #080c09;
+color: var(--color-neutral-darkest);
 margin-bottom: 40px;
 font-family: "Raleway Regular", sans-serif;
 }
@@ -43,10 +43,6 @@ max-width: 335px;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
- justify-content: flex-start;
 }
 
 .category-item {
@@ -70,7 +66,7 @@ font-size: 18px;
 line-height: 1.4;
 letter-spacing: 0.01em;
 text-align: center;
-color: #fff;
+ color: var(--color-white);
 font-family: "Raleway Bold", sans-serif;
 }
 
@@ -92,9 +88,15 @@ font-family: "Raleway Bold", sans-serif;
     .title-cntr,
     .categories{
     max-width: 1312px;
+    .furniture{
+    padding: 48px 32px;
+}
 }
 
 .category-item {
   width: calc((100% - 6 * 24px) / 7);
+}
+.furniture{
+    padding: 80px 64px;
 }
 }
