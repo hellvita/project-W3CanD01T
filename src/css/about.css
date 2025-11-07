@@ -1,18 +1,7 @@
 .about-us {
     background-color: var(--color-madang-lightest);
-    /* height: 887px; */
     padding: 64px 0;
     width: 100%;
-}
-.container-about-us {
-    width: 335px;
-    /* height: 759px; */
-    max-width: 1318px;
-}
-.container-about-us-text {
-    width: 335px;
-    /* height: 299px; */
-    margin-bottom: 24px;
 }
 .about-us-title {
     font-family: "Raleway Bold", sans-serif;
@@ -33,19 +22,7 @@
 }
 @media screen and (min-width: 768px) {
     .about-us {
-        /* height: 707px; */
         padding: 32px 0;
-        width: 100%;
-    }
-    .container-about-us {
-        width: 704px;
-        /* height: 643px; */
-        
-    }
-    .container-about-us-text {
-        width: 704px;
-        /* height: 183px; */
-        margin-bottom: 24px;
     }
     .about-us-picture {
         max-width: 704px;
@@ -53,23 +30,17 @@
 }
 @media screen and (min-width: 1440px) {
 .about-us {
-        /* height: 564px; */
         padding-top: 64px;
         padding-bottom: 64px;
-        width: 100%;
     }
     .container-about-us {
-        width: 1312px;
-        /* height: 436px; */
         display: flex;
         align-items: center;
-        justify-content: flex-start;
         flex-direction: row;
         gap: 24px;
     }
     .container-about-us-text {
         max-width: 644px;
-        /* height: 198px; */
     }
     .about-us-picture {
         max-width: 644px;
