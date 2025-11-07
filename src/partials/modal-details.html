@@ -1,4 +1,4 @@
-<div class="modal-details-overlay">
+<div class="modal-details-overlay" id="modalOverlay">
   <div class="modal-details">
     <button type="button" class="modal-details-close">
       <svg width="32" height="32">
@@ -35,31 +35,34 @@
         <div class="modal-details-rating">★★★★★</div>
 
         <div class="modal-details-colors">
-          <p class="madal-detail-color-title">Колір</p>
+          <p class="modal-detail-color-title">Колір</p>
           <div class="modal-detail-color-options">
-            <label class="modal-detail-color-options">
-              <input type="radio" name="color" checked />
-              <span class="color color-lightgray"></span>
+            <label>
+              <input
+                type="radio"
+                name="color"
+                class="color color-lightgray"
+                checked
+              />
             </label>
-            <label class="modal-detail-color-options">
-              <input type="radio" name="color" />
-              <span class="color color-gray"></span>
+            <label>
+              <input type="radio" name="color" class="color color-gray" />
             </label>
-            <label class="modal-detail-color-options">
-              <input type="radio" name="color" />
-              <span class="color color-black"></span>
+            <label>
+              <input type="radio" name="color" class="color color-black" />
             </label>
           </div>
+          <p class="modal-details-description">
+            Класичний диван з м'якими подушками та високою спинкою, ідеальний
+            для сімейного відпочинку. Оббивка з якісної зносостійкої тканини.
+          </p>
+
+          <p class="modal-details-dimensions">
+            Розміри: <span>280×180×85</span>
+          </p>
+
+          <button class="modal-details-order-btn">Перейти до замовлення</button>
         </div>
-
-        <p class="modal-details-description">
-          Класичний диван з м'якими подушками та високою спинкою, ідеальний для
-          сімейного відпочинку. Оббивка з якісної зносостійкої тканини.
-        </p>
-
-        <p class="modal-details-dimensions">Розміри: <span>280×180×85</span></p>
-
-        <button class="modal-details-order-btn">Перейти до замовлення</button>
       </div>
     </div>
   </div>
