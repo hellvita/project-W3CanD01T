@@ -39,7 +39,7 @@ function createFeedbackCard(feedback) {
   card.classList.add('swiper-slide');
   card.innerHTML = `
     <article class="feedback-card" aria-label="Відгук клієнта">
-      <div class="feedback-card__rating">
+      <div class="feedback-card__stars-wrapper">
         <div class="feedback-card__stars">
           ${createStars(rating)}
         </div>
@@ -57,7 +57,7 @@ export function loadFeedbacks() {
   const feedbackList = document.getElementById('feedback-list');
   const loader = document.getElementById('feedback-loader');
 
-  loader.classList.remove('is-hidden'); // показати лоадер
+  loader.classList.remove('is-hidden'); 
 
   fetch('https://furniture-store-v2.b.goit.study/api/feedbacks')
     .then(response => {

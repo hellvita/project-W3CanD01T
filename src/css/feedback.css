@@ -1,20 +1,24 @@
 
 .feedback {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 80px;
+  width: 100%;
   padding-top: 64px;
   padding-bottom: 64px;
-  height: 637px;
-  background: var(--color-scheme-1-background);
+  margin: 0 auto;
+  background-color: var(--color-scheme-1-background);
+  box-sizing: border-box;
 }
+
 
 .feedback-title {
   font: 700 48px / 1.2 var(--font-family);
   letter-spacing: 0.01em;
-  color: var(--color-scheme-1-text);  
+  color: var(--color-scheme-1-text); 
+  margin-bottom: 24px;
 }
 
 .feedback-subtitle {
@@ -63,92 +67,126 @@
 }
 
 .feedback-card {
-  background-color: var(--color-white);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  padding: 32px 24px;
-  max-width: 360px;
-  width: 100%;
-  text-align: center;
+ display: flex;
+ align-items: flex-start;
+ justify-content: flex-start;
+ flex-direction: column;
+ gap: 24px;
+ padding: 0px 48px 0px 0px;
+ width: 100%;
+ height: auto;
+ background-color: var(--color-white);
+ border-radius: 16px; 
+ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+ text-align: left;
 }
 
-.feedback-card__rating {
+.feedback-card__stars-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 4px;
+  margin-bottom: 24px;
 }
+
 
 .feedback-card__stars svg {
-  width: 20px;
+  width: 20px;       
   height: 20px;
-  fill: var(--color-star);
-}
-
-.feedback-card__score {
-  font-family: 'Raleway SemiBold', sans-sansserif;
-  font-size: 18px;
-  color: var(--color-title);
+  fill: var(--color-neutral-darkest); 
 }
 
 .feedback-card__text {
-  font-family: 'Raleway Regular', sans-serif;
-  font-size: 15px;
-  line-height: 1.4;
-  color: var(--color-text);
-  margin-bottom: 16px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--color-neutral-darkest);
+  margin-bottom: 24px;
 }
 
 .feedback-card__author {
-  font-family: 'Raleway Medium', sans-serif;
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: 16px;
-  color: var(--color-title);
+  line-height: 1.6;
+  color: var(--color-neutral-darkest);
+  margin-bottom: 48px; 
 }
 
-.swiper-pagination {
-  margin-top: 32px;
+.feedback-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 64px; 
+}
+
+.feedback-pagination {
+  display: flex;
+  gap: 8px; 
 }
 
 .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: var(--color-border-light);
-  opacity: 1;
-  transition: background-color 0.3s ease;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%; 
+  background-color: var(--color-scheme-1-text);
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--color-primary);
+opacity: 1;
 }
 
 .feedback-nav {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
   gap: 16px;
-  margin-top: 48px;
+  width: 100%;
+  height: auto;
+}
+
+.feedback-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .feedback-btn-prev,
 .feedback-btn-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
   width: 48px;
   height: 48px;
-  background-color: var(--color-white);
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  border-radius: 100px;
+  background: var(--color-scheme-1-foreground);
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .feedback-btn-prev:hover,
-.feedback-btn-next:hover {
-  background-color: var(--color-bg-hover);
+.feedback-btn-next:hover,
+.feedback-btn-prev:focus,
+.feedback-btn-next:focus{
+  background-color: var(--color-madang-light);
   transform: scale(1.05);
 }
+
+.feedback-btn-prev:active,
+.feedback-btn-next:active {
+  background: var(--color-madang); 
+}
+
 
 .feedback-btn-prev:disabled,
 .feedback-btn-next:disabled {
@@ -158,30 +196,21 @@
 
 .feedback-btn-prev svg,
 .feedback-btn-next svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--color-primary);
+  width: 14px;
+  height: 14px;
+  fill: var(--color-scheme-1-text);
 }
 
 
 @media (max-width: 767px) {
   .feedback {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding: 64px 20px;
   }
   .feedback-title {
-    font-size: 24px;
-  }
-  .feedback-subtitle {
-    font-size: 14px;
-    margin-bottom: 32px;
+    font-size: 36px;
   }
   .feedback-card {
-    padding: 24px 16px;
-    max-width: 280px;
-  }
-  .feedback-nav {
-    margin-top: 32px;
+    max-width: 335px;
   }
    .feedback-loader {
     height: 60px;       
@@ -197,34 +226,37 @@
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .feedback {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-  .feedback-title {
-    font-size: 30px;
-  }
-  .feedback-subtitle {
-    font-size: 15px;
-    margin-bottom: 40px;
+    padding: 32px;
   }
   .feedback-card {
-    max-width: 320px;
+    max-width: 341px;
   }
-  .feedback-nav {
-    margin-top: 40px;
+  .feedback-loader {
+    height: 80px;          
+    margin-bottom: 56px;   
   }
+  .loader {
+    width: 48px;           
+    border-width: 5px;
+  }
+  
 }
 
 
 @media (min-width: 1440px) {
   .feedback {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding: 64px;
   }
   .feedback-card {
-    max-width: 360px;
+    max-width: 421px;
   }
-  .feedback-nav {
-    margin-top: 56px;
+  .feedback-loader {
+    height: 100px;         
+    margin-bottom: 64px;   
+  }
+  .loader {
+    width: 60px;         
+    height: 60px;
+    border-width: 6px;
   }
 }
