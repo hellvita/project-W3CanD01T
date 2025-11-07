@@ -68,6 +68,10 @@ footer {
     align-items: center;
 }
 
+/* .soc-item .link {
+    color: var(--color-white);
+} */
+
 .soc-item:not(:last-child) {
     margin-right: 24px;
 }
