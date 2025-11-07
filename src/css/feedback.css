@@ -13,7 +13,6 @@
   box-sizing: border-box;
 }
 
-
 .feedback-title {
   font: 700 48px / 1.2 var(--font-family);
   letter-spacing: 0.01em;
@@ -87,7 +86,6 @@
   gap: 4px;
   margin-bottom: 24px;
 }
-
 
 .feedback-card__stars svg {
   width: 20px;       
@@ -186,7 +184,6 @@ opacity: 1;
 .feedback-btn-next:active {
   background: var(--color-madang); 
 }
-
 
 .feedback-btn-prev:disabled,
 .feedback-btn-next:disabled {
