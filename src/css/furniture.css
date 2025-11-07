@@ -43,7 +43,6 @@
 }
 .show-more-btn {
   width: 100%;
-  height: 46px;
 }
 @media only screen and (min-width: 375px) {
   .furniture-list-item {
