@@ -1,0 +1,88 @@
+.furniture-list {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.furniture-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  object-fit: cover;
+  object-position: center;
+}
+.furniture-title {
+  font-family: 'Raleway SemiBold', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 8px;
+}
+.furniture-color-list {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin-bottom: 8px;
+}
+.color-circle {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+.furniture-price {
+  font-family: 'Raleway SemiBold', sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 16px;
+}
+.furniture-more-btn {
+  width: 100%;
+}
+.show-more-btn {
+  width: 100%;
+}
+@media only screen and (min-width: 375px) {
+  .furniture-list-item {
+    min-height: 456px;
+  }
+  .furniture-img {
+    height: 278px;
+  }
+} /* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .furniture-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .furniture-list-item {
+    width: calc((100% - 24px) / 2);
+    min-height: 460px;
+  }
+  .furniture-img {
+    height: 282px;
+  }
+  .show-more-btn {
+    max-width: 340px;
+    display: block;
+    margin: 0 auto;
+  }
+} /* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+  .furniture-list {
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+  .furniture-list-item {
+    min-height: 435px;
+    width: calc((100% - 72px) / 4);
+  }
+  .furniture-img {
+    height: 257px;
+  }
+  .show-more-btn {
+    max-width: 421px;
+  }
+}
