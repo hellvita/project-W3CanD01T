@@ -1,12 +1,51 @@
 :root {
   --font-family: 'Raleway', sans-serif;
-  --second-family: 'IBM Plex Sans', sans-serif;
-  --color-neutral-darkest: #080c09;
-  --color-white: #fff;
-  --color-scheme-1-text: var(--color-neutral-darkest);
-  --color-scheme-1-background: var(--color-white);
-  --color-scheme-1-border: var(--opacity-neutral-darkest-15);
-  --opacity-neutral-darkest-15: rgba(8, 12, 9, 0.15);
+}
+.ac {
+  border: none !important;
+  font-family: var(--font-family) !important;
+  border-top: 1px solid var(--color-scheme-1-border) !important;
+  margin: 0 !important;
+}
+.ac:last-child {
+  border-bottom: 1px solid var(--color-scheme-1-border) !important;
+}
+.ac-header {
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 160% !important;
+  margin: 20px 0 !important;
+}
+.ac-trigger {
+  max-width: 280px;
+  border: none;
+  color: var(--color-scheme-1-text) !important;
+  background-color: var(--color-scheme-1-background);
+  padding: 0 !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 160% !important;
+}
+.ac-trigger:focus,
+.ac-trigger:hover {
+  opacity: 0.5;
+}
+.ac-panel {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 160% !important;
+}
+.ac .ac-trigger::after {
+  content: '' !important;
+  background-image: url('../img/bird.svg');
+  background-size: 15px 15px; /* Встановіть розмір фону */
+  width: 15px;
+  height: 15px;
+  right: -48px !important;
+}
+.ac.is-active > .ac-header .ac-trigger::after {
+  transform: rotate(180deg);
+  top: 25%;
 }
 
 .faq-block {
@@ -20,10 +59,7 @@
   flex-direction: column;
   align-items: center;
 }
-.faq-block-item {
-  border-bottom: 1px solid var(--color-scheme-1-border);
-  border-top: 1px solid var(--color-scheme-1-border);
-}
+
 .faq-block-title {
   font-weight: 700;
   font-size: 36px;
@@ -32,24 +68,23 @@
   text-align: center;
   margin-bottom: 32px;
 }
-.faq-block-question {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 160%;
-}
+
 .faq-block-answer {
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
+  padding-right: 8px;
+  padding-bottom: 24px;
 }
 
 @media screen and (min-width: 768px) {
   .faq-block {
     padding: 48px 32px;
     max-width: 768px;
+    max-height: 531px;
   }
-  .faq-block ul {
-    width: 100%;
+  .ac-trigger {
+    max-width: 650px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -57,14 +92,13 @@
     padding: 80px 64px;
     max-width: 1440px;
   }
-  .faq-block ul {
-    max-width: 865px;
-    height: 360px; /* треба ????????*/
-  }
   .faq-block-title {
     font-size: 48px;
   }
-}
-.hidden {
-  display: none;
+  .ac-trigger {
+    max-width: 810px;
+  }
+  .ac .ac-trigger::after {
+    right: -156px !important;
+  }
 }
