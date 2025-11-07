@@ -93,6 +93,12 @@
   fill: var(--color-neutral-darkest); 
 }
 
+.feedback-card__stars img {
+  display: inline-block; 
+  width: 20px;
+  height: 20px;
+}
+
 .feedback-card__text {
   font-family: var(--font-family);
   font-weight: 500;

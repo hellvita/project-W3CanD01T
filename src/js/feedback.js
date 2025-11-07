@@ -1,11 +1,12 @@
-
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-
+import Raty from 'raty-js'; 
+import starOn from 'raty-js/src/images/star-on.png';
+import starOff from 'raty-js/src/images/star-off.png';
+import starHalf from 'raty-js/src/images/star-half.png';
 
 function roundRating(value) {
   const decimal = value % 1;
@@ -16,39 +17,18 @@ function roundRating(value) {
 }
 
 
-function createStars(rating) {
-  const fullStars = Math.floor(rating);
-  const halfStar = rating % 1 === 0.5;
-  let starsHTML = '';
-
-  for (let i = 0; i < fullStars; i++) {
-    starsHTML += `<svg width="20" height="20" fill="var(--color-primary)">
-      <use href="./img/icons.svg#icon-star"></use>
-    </svg>`;
-  }
-  if (halfStar) {
-    starsHTML += `<svg width="20" height="20" fill="var(--color-primary)">
-      <use href="./img/icons.svg#icon-star-half"></use>
-    </svg>`;
-  }
-  return starsHTML;
-}
-
-
 function createFeedbackCard(feedback) {
-  const rating = roundRating(feedback.rating);
+  const rating = roundRating(feedback.rate);
   const card = document.createElement('div');
   card.classList.add('swiper-slide');
   card.innerHTML = `
     <article class="feedback-card" aria-label="Відгук клієнта">
       <div class="feedback-card__stars-wrapper">
-        <div class="feedback-card__stars">
-          ${createStars(rating)}
-        </div>
+        <div class="feedback-card__stars" data-rating="${rating}"></div>
         <span class="feedback-card__score">${rating}</span>
       </div>
-      <p class="feedback-card__text">${feedback.text}</p>
-      <p class="feedback-card__author">${feedback.author}</p>
+      <p class="feedback-card__text">${feedback.descr}</p>
+      <p class="feedback-card__author">${feedback.name}</p>
     </article>
   `;
   return card;
@@ -59,7 +39,7 @@ export function loadFeedbacks() {
   const feedbackList = document.getElementById('feedback-list');
   const loader = document.getElementById('feedback-loader');
 
-  loader.classList.remove('is-hidden'); 
+  loader.classList.remove('is-hidden');
 
   fetch('https://furniture-store-v2.b.goit.study/api/feedbacks')
     .then(response => {
@@ -68,11 +48,12 @@ export function loadFeedbacks() {
     })
     .then(data => {
       feedbackList.innerHTML = '';
-      data.slice(0, 10).forEach(feedback => {
+
+    
+      data.feedbacks.slice(0, 10).forEach(feedback => {
         const card = createFeedbackCard(feedback);
         feedbackList.appendChild(card);
       });
-
 
       new Swiper('.feedback-slider', {
         modules: [Navigation, Pagination],
@@ -80,7 +61,7 @@ export function loadFeedbacks() {
         spaceBetween: 24,
         loop: false,
         pagination: {
-          el: '.swiper-pagination',
+          el: '.feedback-pagination',
           clickable: true,
         },
         navigation: {
@@ -88,13 +69,25 @@ export function loadFeedbacks() {
           prevEl: '.feedback-btn-prev',
         },
         breakpoints: {
-          768: {
-            slidesPerView: 2,
-          },
-          1440: {
-            slidesPerView: 3,
-          },
+          768: { slidesPerView: 2 },
+          1440: { slidesPerView: 3 },
         },
+      });
+
+     
+      const feedbackStars = document.querySelectorAll('.feedback-card__stars');
+      feedbackStars.forEach(el => {
+        const score = el.dataset.rating || 0;
+        const raty = new Raty(el, {
+          number: 5,
+          score: score,
+          readOnly: true,
+          starType: 'img',
+          starOn: starOn,
+          starOff: starOff,
+          starHalf: starHalf,
+        });
+        raty.init(); 
       });
     })
     .catch(error => {
@@ -102,6 +95,8 @@ export function loadFeedbacks() {
       alert('Не вдалося завантажити відгуки. Спробуйте пізніше.');
     })
     .finally(() => {
-      loader.classList.add('is-hidden'); 
+      loader.classList.add('is-hidden');
     });
 }
+
+document.addEventListener('DOMContentLoaded', loadFeedbacks);
