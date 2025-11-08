@@ -1,7 +1,7 @@
 @media only screen and (max-width: 375px) {
   .furniture-loader {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 335/456;
     background: linear-gradient(0.25turn, transparent, #fff, transparent),
       linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
       linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
