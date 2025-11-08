@@ -1,6 +1,6 @@
 import { getCategories, getFurnitureCard } from './handlers';
 
-export function initFurnitureSection() {
-  getCategories();
-  getFurnitureCard();
+export async function initFurnitureSection() {
+  await getCategories();
+  await getFurnitureCard();
 }

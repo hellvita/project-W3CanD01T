@@ -5,7 +5,6 @@ axios.defaults.baseURL = BASE_URL;
 
 export async function fetchFurnitureCategory() {
   const { data } = await axios.get(ENDPOINTS.CATEGORY);
-  console.log(data);
 
   return data;
 }
@@ -18,6 +17,6 @@ export async function fetchFurnitureCard() {
     },
   });
 
-  console.log(data);
-  return data;
+  console.log(data.furnitures);
+  return data.furnitures;
 }
