@@ -99,7 +99,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   text-align: center;
@@ -107,7 +107,13 @@
   font-family: 'Raleway Bold', sans-serif;
 }
 
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 375px) {
+  .category-name {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   .title-cntr,
   .categories {
     max-width: 704px;
@@ -119,7 +125,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   .title-cntr,
   .categories {
     max-width: 1312px;
