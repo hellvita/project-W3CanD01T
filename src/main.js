@@ -1,1 +1,3 @@
-import './js/faq.js';
+import { initAccordion } from "./js/faq.js";
+
+initAccordion();

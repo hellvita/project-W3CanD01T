@@ -1,19 +1,16 @@
 :root {
   --font-family: 'Raleway', sans-serif;
 }
-.ac {
-  border: none !important;
-  font-family: var(--font-family) !important;
-  border-top: 1px solid var(--color-scheme-1-border) !important;
-  margin: 0 !important;
+.faq-section .ac {
+  border: none;
+  font-family: var(--font-family);
+  border-top: 1px solid var(--color-scheme-1-border);
+  margin: 0;
 }
-.ac:last-child {
-  border-bottom: 1px solid var(--color-scheme-1-border) !important;
+.faq-section .ac:last-child {
+  border-bottom: 1px solid var(--color-scheme-1-border);
 }
-.ac-header {
-  font-weight: 700 !important;
-  font-size: 18px !important;
-  line-height: 160% !important;
+.faq-section .ac-header {
   margin: 20px 0 !important;
 }
 .ac-trigger {
@@ -22,7 +19,7 @@
   color: var(--color-scheme-1-text) !important;
   background-color: var(--color-scheme-1-background);
   padding: 0 !important;
-  font-weight: 700 !important;
+  font-family: 'Raleway Bold' !important;
   font-size: 18px !important;
   line-height: 160% !important;
 }
@@ -31,7 +28,7 @@
   opacity: 0.5;
 }
 .ac-panel {
-  font-weight: 400 !important;
+  font-family: 'Raleway Regular' !important;
   font-size: 16px !important;
   line-height: 160% !important;
 }
@@ -49,9 +46,8 @@
 }
 
 .faq-block {
-  font-family: var(--font-family);
   color: var(--color-scheme-1-text);
-  padding: 48px 20px;
+  padding: 48px 0;
   max-width: 375px;
   height: 635px;
   background: var(--color-scheme-1-background);
@@ -61,7 +57,7 @@
 }
 
 .faq-block-title {
-  font-weight: 700;
+  font-family: 'Raleway Bold';
   font-size: 36px;
   line-height: 120%;
   letter-spacing: 0.01em;
@@ -70,7 +66,7 @@
 }
 
 .faq-block-answer {
-  font-weight: 400;
+  font-family: 'Raleway Regular';
   font-size: 16px;
   line-height: 160%;
   padding-right: 8px;
@@ -79,7 +75,7 @@
 
 @media screen and (min-width: 768px) {
   .faq-block {
-    padding: 48px 32px;
+    padding: 48px 0;
     max-width: 768px;
     max-height: 531px;
   }
@@ -89,8 +85,9 @@
 }
 @media screen and (min-width: 1440px) {
   .faq-block {
-    padding: 80px 64px;
+    padding: 80px 0;
     max-width: 1440px;
+    max-height: 610px;
   }
   .faq-block-title {
     font-size: 48px;
