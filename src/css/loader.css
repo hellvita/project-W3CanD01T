@@ -1,16 +1,16 @@
 @media only screen and (max-width: 375px) {
   .furniture-loader {
     width: 100%;
-    aspect-ratio: 295.2 / 423.76;
+    height: 100%;
     background: linear-gradient(0.25turn, transparent, #fff, transparent),
       linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
       linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
       linear-gradient(#ddd, #ddd);
     background-color: #fff;
     background-repeat: no-repeat;
-    background-size: 100%, 100% 59%, 50% 6.54%, 104px 5.45%, 104px 7.27%,
+    background-size: 100%, 100% 50.75%, 50% 23px, 104px 24px, 104px 21px,
       100% 46px;
-    background-position: -215px 0, 0 0, 0 69%, 0 77.5%, 0 87%, 0 100%;
+    background-position: -215px 0, 0 0, 0 68.5%, 0 76.2%, 0 84.8%, 0 100%;
     animation: loading 1.5s infinite;
 
     border-radius: 8px;
@@ -21,7 +21,7 @@
 
   @keyframes loading {
     to {
-      background-position: 215px 0, 0 0, 0 69%, 0 77.5%, 0 87%, 0 100%;
+      background-position: 215px 0, 0 0, 0 68.5%, 0 76.2%, 0 84.8%, 0 100%;
     }
   }
 }
