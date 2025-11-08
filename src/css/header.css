@@ -11,11 +11,13 @@
   flex-wrap: wrap;
 }
 
-.header__menu-btn {
+.header__menu-btn,
+.header__close-btn {
   display: none;
 }
 
-.header__menu-btn.visible {
+.header__menu-btn.visible,
+.header__close-btn.visible {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,9 +25,7 @@
   border: none;
 }
 
-.header__logo:hover,
-.header__logo:focus,
-.header__menu-btn:hover,
-.header__menu-btn:focus {
+.header--anim:hover,
+.header--anim:focus {
   opacity: 0.5;
 }
