@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  padding: 16px 0;
+}
+
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header__menu-btn {
+  display: none;
+}
+
+.header__menu-btn.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.header__logo:hover,
+.header__logo:focus,
+.header__menu-btn:hover,
+.header__menu-btn:focus {
+  opacity: 0.5;
+}
