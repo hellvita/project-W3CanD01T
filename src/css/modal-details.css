@@ -8,16 +8,16 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-
-    display: flex;
-
+    background-color: rgba(0, 0, 0, 0.25); 
+display: flex; 
 }
+  
+   
 
-.modal-details-overlay.active {
+.modal-details-overlay.modal--is-open {
     display: flex;
     opacity: 1;
-
+    visibility: visible;
 }
 
 .modal-details {
@@ -41,7 +41,11 @@
     cursor: pointer;
     fill: var(--color-neutral-darkest);
 }
-
+.modal-details-close:hover,
+.modal-details-close:focus {
+    cursor: pointer;
+    opacity: 0.5;
+}
 .modal-details-content {
     position: relative;
     display: flex;
@@ -179,6 +183,7 @@ font-family: 'Raleway Bold', sans-serif;
 @media (min-width: 768px) {
     .modal-details {
         max-width: 704px;
+        padding: 64px 32px 32px;
 
     }
 
