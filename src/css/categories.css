@@ -3,13 +3,11 @@
 }
 
 .furniture {
-  padding: 48px 0px;
+  padding: 48px 0;
 }
 
 .categories-title {
   font-size: 36px;
-
-  /* line-height: 43px; */
   line-height: 1.2;
   letter-spacing: 0.01em;
   color: var(--color-neutral-darkest);
@@ -19,8 +17,6 @@
 
 .categories-subtitle {
   font-size: 18px;
-
-  /* line-height: 29px; */
   line-height: 1.6;
   color: var(--color-neutral-darkest);
   margin-bottom: 40px;
@@ -40,30 +36,62 @@
 }
 
 .category-item {
+  position: relative;
   width: calc((100% - 16px) / 2);
-}
-
-.category-item.active {
-  border: 8px solid var(--color-madang);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-.category-item:hover {
-  cursor: pointer;
+.category-item:hover,
+.category-item.active {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.category-item:not(.active):hover {
+  opacity: 0.8;
+}
+
+.category-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+  pointer-events: none;
+}
+
+.category-item:hover::before,
+.category-item.active::before {
+  opacity: 1;
+}
+
+.category-img,
+.frame,
+.category-item::before {
+  border-radius: 8px;
 }
 
 .category-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-.category-img.active {
-  border-radius: 0px;
+.frame {
+  position: absolute;
+  inset: 0;
+  border: 8px solid var(--color-madang);
+  background: none;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .category-name {
@@ -72,7 +100,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 18px;
-
   line-height: 1.4;
   letter-spacing: 0.01em;
   text-align: center;
@@ -90,10 +117,6 @@
   .category-item {
     width: calc((100% - 3 * 24px) / 4);
   }
-
-  .furniture {
-    padding: 48px 0px;
-  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -105,7 +128,8 @@
   .category-item {
     width: calc((100% - 6 * 24px) / 7);
   }
+
   .furniture {
-    padding: 80px 0px;
+    padding: 80px 0;
   }
 }
