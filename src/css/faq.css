@@ -1,44 +1,34 @@
-:root {
-  --font-family: 'Raleway', sans-serif;
-}
 .faq-section .ac {
   border: none;
-  font-family: var(--font-family);
   border-top: 1px solid var(--color-scheme-1-border);
   margin: 0;
 }
 .faq-section .ac:last-child {
   border-bottom: 1px solid var(--color-scheme-1-border);
 }
-.faq-section .ac-header {
-  margin: 20px 0 !important;
+.faq-section .ac .ac-header {
+  margin: 20px 0;
 }
-.ac-trigger {
+.faq-section .ac .ac-trigger {
   max-width: 280px;
   border: none;
-  color: var(--color-scheme-1-text) !important;
-  background-color: var(--color-scheme-1-background);
-  padding: 0 !important;
-  font-family: 'Raleway Bold' !important;
-  font-size: 18px !important;
-  line-height: 160% !important;
+  color: var(--color-scheme-1-text);
+  padding: 0;
+  font-family: 'Raleway Bold';
+  font-size: 18px;
+  line-height: 160%;
 }
 .ac-trigger:focus,
 .ac-trigger:hover {
   opacity: 0.5;
 }
-.ac-panel {
-  font-family: 'Raleway Regular' !important;
-  font-size: 16px !important;
-  line-height: 160% !important;
-}
-.ac .ac-trigger::after {
+.faq-section .ac .ac-trigger::after {
   content: '' !important;
-  background-image: url('../img/bird.svg');
-  background-size: 15px 15px; /* Встановіть розмір фону */
+  background-image: url('../img/arrow-up.svg');
+  background-size: 15px 15px;
   width: 15px;
   height: 15px;
-  right: -48px !important;
+  right: -48px;
 }
 .ac.is-active > .ac-header .ac-trigger::after {
   transform: rotate(180deg);
@@ -73,17 +63,17 @@
   padding-bottom: 24px;
 }
 
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .faq-block {
     padding: 48px 0;
     max-width: 768px;
     max-height: 531px;
   }
-  .ac-trigger {
+  .faq-section .ac .ac-trigger {
     max-width: 650px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   .faq-block {
     padding: 80px 0;
     max-width: 1440px;
@@ -92,10 +82,10 @@
   .faq-block-title {
     font-size: 48px;
   }
-  .ac-trigger {
+  .faq-section .ac .ac-trigger {
     max-width: 810px;
   }
-  .ac .ac-trigger::after {
-    right: -156px !important;
+  .faq-section .ac .ac-header .ac-trigger::after {
+    right: -188px !important;
   }
 }
