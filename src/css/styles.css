@@ -11,6 +11,9 @@
 @import url('./footer.css');
 @import url('./modal-order.css');
 
+@import url('./modal-details.css');
+@import url('./modal-order.css');
+
 @import url('./loader.css');
 
 @import url('izitoast/dist/css/iziToast.min.css');

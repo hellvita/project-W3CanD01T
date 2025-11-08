@@ -14,7 +14,6 @@
 .modal-order-backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  display: none;
 }
 
 .modal-order {
@@ -113,7 +112,6 @@
 .form-textarea:focus {
   box-shadow: 0 0 0 1.5px var(--opacity-neutral-darkest-20);
 }
-
 .form-input.error,
 .form-textarea.error {
   box-shadow: 0 0 0 1.5px var(--opacity-neutral-darkest-30);
@@ -132,6 +130,7 @@
   width: 100%;
   align-self: center;
 }
+
 @media only screen and (min-width: 375px) {
   .modal-order {
     min-width: 335px;
@@ -140,7 +139,7 @@
 @media only screen and (min-width: 768px) {
   .modal-order {
     max-width: 704px;
-    padding: 64px 32px;
+    padding: 32px;
     gap: 48px;
   }
 
