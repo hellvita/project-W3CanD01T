@@ -1,12 +1,28 @@
+
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Raty from 'raty-js'; 
+import Raty from 'raty-js';
 import starOn from 'raty-js/src/images/star-on.png';
 import starOff from 'raty-js/src/images/star-off.png';
 import starHalf from 'raty-js/src/images/star-half.png';
+
+async function loadPartials() {
+  const loads = document.querySelectorAll('load');
+  for (const el of loads) {
+    const src = el.getAttribute('src');
+    if (src) {
+      const resp = await fetch(src);
+      if (resp.ok) {
+        el.outerHTML = await resp.text();
+      } else {
+        console.error('Не вдалося завантажити:', src);
+      }
+    }
+  }
+}
 
 function roundRating(value) {
   const decimal = value % 1;
@@ -15,7 +31,6 @@ function roundRating(value) {
   if (decimal >= 0.8) result += 1;
   return result;
 }
-
 
 function createFeedbackCard(feedback) {
   const rating = roundRating(feedback.rate);
@@ -33,69 +48,36 @@ function createFeedbackCard(feedback) {
   return card;
 }
 
+export async function loadFeedbacks() {
+  await loadPartials(); 
 
-export function loadFeedbacks() {
   const feedbackList = document.getElementById('feedback-list');
   const loader = document.getElementById('feedback-loader');
-
   loader.classList.remove('is-hidden');
 
   fetch('https://furniture-store-v2.b.goit.study/api/feedbacks')
-    .then(response => {
-      if (!response.ok) throw new Error('Помилка завантаження відгуків');
-      return response.json();
-    })
+    .then(res => res.ok ? res.json() : Promise.reject('Помилка завантаження'))
     .then(data => {
       feedbackList.innerHTML = '';
-
-    
-      data.feedbacks.slice(0, 10).forEach(feedback => {
-        const card = createFeedbackCard(feedback);
-        feedbackList.appendChild(card);
-      });
+      data.feedbacks.slice(0, 10).forEach(f => feedbackList.appendChild(createFeedbackCard(f)));
 
       new Swiper('.feedback-slider', {
         modules: [Navigation, Pagination],
         slidesPerView: 1,
         spaceBetween: 24,
         loop: false,
-        pagination: {
-          el: '.feedback-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.feedback-btn-next',
-          prevEl: '.feedback-btn-prev',
-        },
-        breakpoints: {
-          768: { slidesPerView: 2 },
-          1440: { slidesPerView: 3 },
-        },
+        pagination: { el: '.feedback-pagination', clickable: true },
+        navigation: { nextEl: '.feedback-btn-next', prevEl: '.feedback-btn-prev' },
+        breakpoints: { 768: { slidesPerView: 2 }, 1440: { slidesPerView: 3 } },
       });
 
-     
       const feedbackStars = document.querySelectorAll('.feedback-card__stars');
       feedbackStars.forEach(el => {
         const score = el.dataset.rating || 0;
-        const raty = new Raty(el, {
-          number: 5,
-          score: score,
-          readOnly: true,
-          starType: 'img',
-          starOn: starOn,
-          starOff: starOff,
-          starHalf: starHalf,
-        });
-        raty.init(); 
+        const raty = new Raty(el, { number: 5, score, readOnly: true, starType: 'img', starOn, starOff, starHalf });
+        raty.init();
       });
     })
-    .catch(error => {
-      console.error(error);
-      alert('Не вдалося завантажити відгуки. Спробуйте пізніше.');
-    })
-    .finally(() => {
-      loader.classList.add('is-hidden');
-    });
+    .catch(err => console.error(err))
+    .finally(() => loader.classList.add('is-hidden'));
 }
-
-document.addEventListener('DOMContentLoaded', loadFeedbacks);
