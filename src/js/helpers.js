@@ -1,3 +1,4 @@
+import { refs } from './refs';
 import iziToast from 'izitoast';
 
 iziToast.settings({
@@ -10,3 +11,11 @@ iziToast.settings({
 });
 
 export const toastMessage = message => iziToast.show({ message: [message] });
+
+export function hideBtn(button) {
+  button.classList.remove('visible');
+}
+
+export function showBtn(button) {
+  button.classList.add('visible');
+}

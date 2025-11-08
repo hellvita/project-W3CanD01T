@@ -1,6 +1,5 @@
 .header {
   width: 100%;
-  padding: 16px 0;
 }
 
 .header__wrapper {
@@ -23,6 +22,10 @@
   align-items: center;
   background-color: transparent;
   border: none;
+}
+
+.header--anim {
+  padding: 16px 0;
 }
 
 .header--anim:hover,
