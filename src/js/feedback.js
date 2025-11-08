@@ -5,9 +5,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Raty from 'raty-js';
-import starOn from 'raty-js/src/images/star-on.png';
-import starOff from 'raty-js/src/images/star-off.png';
-import starHalf from 'raty-js/src/images/star-half.png';
+import starOn from '../img/feedback/starOn.png';
+import starOff from '../img/feedback/starOff.png';
+import starHalf from '../img/feedback/starHalf.png';
+
 
 async function loadPartials() {
   const loads = document.querySelectorAll('load');

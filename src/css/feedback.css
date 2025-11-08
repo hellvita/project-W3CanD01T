@@ -7,8 +7,7 @@
   width: 100%;
   padding: 64px 0;
   margin: 0 auto;
-  color: var(--color-scheme-1-text); 
-  font-family: var(--font-family); 
+  color: var(--color-scheme-1-text);  
 }
 
 .feedback-title {
@@ -17,13 +16,15 @@
   line-height: 1.2;
   letter-spacing: 0.01em;
   margin-bottom: 24px;
+  font-family:'Raleway Bold', sans-serif;
 }
 
 .feedback-subtitle {
   font-weight: 400;          
   font-size: 18px;           
   line-height: 1.6;  
-  margin-bottom: 80px;       
+  margin-bottom: 80px;   
+  font-family:'Raleway', sans-serif; 
 }
 
 .feedback-loader {
@@ -98,6 +99,7 @@
 }
 
 .feedback-card__text {
+   font-family:'Raleway Medium', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.6;
@@ -109,6 +111,7 @@
 }
 
 .feedback-card__author {
+  font-family: 'Raleway Bold', sans-serif; 
   font-weight: 700;
   font-size: 16px;
   line-height: 1.6;
@@ -117,7 +120,7 @@
 }
 
 .feedback-controls {
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   align-items: center;
   gap: 24px;
@@ -125,8 +128,8 @@
   margin-bottom: 64px; 
 }
 
-.feedback-pagination{
-  display: flex !important;
+.feedback .feedback-pagination {
+  display: flex;
   gap: 8px; 
   flex-shrink: 0; 
   align-items: center;
@@ -142,10 +145,11 @@
   background-color: #080C09 !important; 
 }
 
-.swiper-pagination-bullet-active {
-opacity: 1;
-background-color: #080C09; 
+.feedback .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #080C09; 
 }
+
 
 .feedback-nav {
   display: flex;
@@ -189,10 +193,20 @@ background-color: #080C09;
   background-color: var(--color-madang);
 }
 
+.feedback-btn-prev:not(:disabled):hover,
+.feedback-btn-prev:not(:disabled):focus,
+.feedback-btn-next:not(:disabled):hover,
+.feedback-btn-next:not(:disabled):focus {
+  background-color: var(--color-madang-light);
+  transform: scale(1.05);
+}
+
 .feedback-btn-prev:disabled,
 .feedback-btn-next:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: default;
+  pointer-events: none;
+  background-color: var(--color-scheme-1-foreground);
 }
 
 .feedback-btn-prev svg,
