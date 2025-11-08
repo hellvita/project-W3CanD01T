@@ -1,0 +1,95 @@
+.hero-section {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url('../img/hero/hero-baner-mobile.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 136px 0 136px 0;
+}
+
+@media (min-resolution: 192dpi) {
+    .hero-section {
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/hero/hero-baner-mobile2x.webp');
+    }
+}
+
+.hero-title {
+    font-family: 'Raleway SemiBold', sans-serif;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: var(--color-white);
+    margin-bottom: 24px;
+}
+
+.hero-text {
+    font-family: 'Raleway Regular', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-white);
+    margin-bottom: 32px;
+}
+
+.hero-section .button-main {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .hero-section {
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/hero/hero-baner-tablet.webp');
+        padding: 80px 0 80px 0;
+    }
+
+    .hero-text {
+        max-width: 560px;
+    }
+
+    .hero-section .button-main {
+        max-width: 209px;
+    }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+    .hero-section {
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/hero/hero-baner-tablet2x.webp');
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .hero-section {
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/hero/hero-baner-desktop.webp');
+        padding: 92px 0 92px 0;
+    }
+
+    .hero-title {
+        font-size: 52px;
+        max-width: 415px;
+    }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+    .hero-section {
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/hero/hero-baner-desktop2x.webp');
+    }
+}
