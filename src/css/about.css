@@ -21,7 +21,7 @@
 .about-us-picture {
     max-width: 335px;
 }
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .about-us {
         padding: 32px 0;
     }
@@ -29,7 +29,7 @@
         max-width: 704px;
     }
 }
-@media screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
     .about-us {
         padding-top: 64px;
         padding-bottom: 64px;
