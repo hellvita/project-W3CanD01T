@@ -8,9 +8,14 @@
 }
 .faq-section .ac .ac-header {
   margin: 20px 0;
+  padding-right: 8px;
 }
 .faq-section .ac .ac-trigger {
-  max-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 100%;
   border: none;
   color: var(--color-scheme-1-text);
   padding: 0;
@@ -25,9 +30,8 @@
 .faq-section .ac .ac-trigger::after {
   content: '' !important;
 }
-.ac.is-active > .ac-header .ac-trigger::after {
+.ac.is-active > .ac-header .svg-sprite-arrow-down {
   transform: rotate(180deg);
-  top: 25%;
 }
 
 .faq-block {
@@ -58,20 +62,14 @@
   padding-bottom: 24px;
 }
 /* для браузерів, які не підтримують svg sprites in background-image в CSS: */
-.svg-sprite-arrow-up {
-  position: absolute;
+.svg-sprite-arrow-down {
   fill: var(--color-scheme-1-text);
   stroke-width: 1px;
   stroke: var(--color-scheme-1-text);
-  top: 40%;
-  right: -44px;
-}
-.faq-section .ac .ac-header {
-  position: relative;
+  flex-shrink: 0;
 }
 .ac.is-active > .ac-header .svg-sprite-arrow-up {
   transform: rotate(180deg);
-  top: 25%;
 }
 /* для браузерів, які не підтримують svg sprites in background-image в CSS ^ */
 
@@ -84,10 +82,6 @@
   .faq-section .ac .ac-trigger {
     max-width: 100%;
   }
-  .svg-sprite-arrow-up {
-    top: 25%;
-    right: 8px;
-  }
 }
 @media only screen and (min-width: 1440px) {
   .faq-block {
@@ -97,11 +91,5 @@
   }
   .faq-block-title {
     font-size: 48px;
-  }
-  .faq-section .ac .ac-trigger {
-    max-width: 100%;
-  }
-  .svg-sprite-arrow-up {
-    right: 8px;
   }
 }
