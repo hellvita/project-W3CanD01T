@@ -2,7 +2,7 @@ import{A as s}from"./assets/vendor-BSq3Nu46.js";(function(){const t=document.cre
             <div class="ac">
                 <h3 class="ac-header">
                     <button type="button" class="ac-trigger">${n}<svg class="svg-sprite-arrow-down" width="17" height="10">
-                                <use href="../img/icons.svg#arrow-down"></use>
+                                <use href="/img/icons.svg#arrow-down"></use>
                             </svg>
                         </button>
                     </h3>
