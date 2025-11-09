@@ -1,8 +1,6 @@
 import { refs } from './refs';
 
-const accordion = document.querySelector('.accordion-container');
-
-export function createFAQ(faqData) {
+export function renderFAQ(faqData) {
     
     const markupFaq = faqData.map(({ q, a }) => `
             <div class="ac">
@@ -18,6 +16,6 @@ export function createFAQ(faqData) {
                 </div>
     `).join('');
 
-    accordion.innerHTML = markupFaq;
+    refs.faqSection.accordion.innerHTML = markupFaq;
 }
     

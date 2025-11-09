@@ -1,6 +1,3 @@
-import { faqData } from "./js/constants.js";
-import { initAccordion } from "./js/faq.js";
-import { createFAQ } from "./js/render-functions.js";
+import { initSectionFaq } from "./js/faq";
 
-createFAQ(faqData);
-initAccordion();
+initSectionFaq();
