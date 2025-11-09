@@ -6,3 +6,7 @@ export const ENDPOINTS = {
   FEEDBACK: '/feedbacks',
   ORDER: '/orders',
 };
+
+export let currentPage = 1;
+export const limit = 8;
+export let currentCategory = 'all';

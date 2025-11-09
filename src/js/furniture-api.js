@@ -5,18 +5,34 @@ axios.defaults.baseURL = BASE_URL;
 
 export async function fetchFurnitureCategory() {
   const { data } = await axios.get(ENDPOINTS.CATEGORY);
-
+  console.log('Категорії отримано:', data);
   return data;
 }
 
-export async function fetchFurnitureCard() {
-  const { data } = await axios.get(ENDPOINTS.FURNITURE, {
-    params: {
-      page: 1,
-      limit: 8,
-    },
-  });
+export async function fetchFurnitureCard(
+  category = 'all',
+  page = 1,
+  limit = 8
+) {
+  const params = { page, limit };
 
-  console.log(data.furnitures);
-  return data.furnitures;
+  if (category && category !== 'all') {
+    params.category = category;
+  }
+
+  console.log('[API] Запит товарів з категорією:', params);
+
+  const { data } = await axios.get(ENDPOINTS.FURNITURE, { params });
+  return data;
+}
+
+export async function fetchFurnitureDetails(id) {
+  const { data } = await axios.get(`${ENDPOINTS.FURNITURE}/${id}`);
+  console.log('API- Деталі товару отримано:', data);
+
+  if (!data || !data._id) {
+    util.toastMessage('Отримали не вірні дані:');
+  }
+
+  return data;
 }
