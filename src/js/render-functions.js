@@ -1,12 +1,13 @@
 import { refs } from './refs';
 
 export function renderFAQ(faqData) {
-    
-    const markupFaq = faqData.map(({ q, a }) => `
+  const markupFaq = faqData
+    .map(
+      ({ q, a }) => `
             <div class="ac">
                 <h3 class="ac-header">
                     <button type="button" class="ac-trigger">${q}<svg class="svg-sprite-arrow-down" width="17" height="10">
-                                <use href="../img/icons.svg#arrow-down"></use>
+                                <use href="/img/icons.svg#arrow-down"></use>
                             </svg>
                         </button>
                     </h3>
@@ -14,8 +15,9 @@ export function renderFAQ(faqData) {
                         <p class="faq-block-answer">${a}</p>
                     </div>
                 </div>
-    `).join('');
+    `
+    )
+    .join('');
 
-    refs.faqSection.accordion.innerHTML = markupFaq;
+  refs.faqSection.accordion.innerHTML = markupFaq;
 }
-    
