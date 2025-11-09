@@ -94,7 +94,6 @@
     display: flex;
     justify-content: center;
     gap: 6px;
-    margin-bottom: 80px;
   }
 
   .tui-page-btn {
@@ -178,5 +177,10 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .furniture-pagination {
+    margin-bottom: 80px;
   }
 }
