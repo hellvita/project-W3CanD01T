@@ -141,7 +141,7 @@
 @media only screen and (min-width: 768px) {
   .modal-order {
     max-width: 704px;
-    padding: 32px;
+    padding: 64px 32px 32px;
     gap: 48px;
   }
 
