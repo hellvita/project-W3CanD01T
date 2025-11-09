@@ -1,6 +1,11 @@
 export const refs = {
-  header: document.querySelector('.header'),
-  headerModal: document.querySelector('.js-header__modal'),
-  headerMenuBtn: document.querySelector('.js-header__menu-btn'),
-  headerCloseBtn: document.querySelector('.js-header__close-btn'),
+  body: document.body,
+  headerSection: {
+    header: document.querySelector('.header'),
+    menuModal: document.querySelector('.js-header__modal'),
+    navList: document.querySelector('.header-modal__list'),
+    burgerBtn: document.querySelector('.js-header__menu-btn'),
+    closeBtn: document.querySelector('.js-header__close-btn'),
+  }
+
 };
