@@ -7,40 +7,15 @@ export function renderCategories(categories) {
   refs.furnitureList.innerHTML = markup;
 }
 
-function createColorMarkup(colors) {
-  if (!colors || colors.length === 0) {
-    return '';
-  }
+function renderColor(colors) {
+  const markup = colors
+    .map(color => {
+      `<li class="color-circle style="background-color: ${color}";
+              </li>`;
+    })
+    .join('');
 
-  const mainColor = colors[0];
-
-  function hexToRgb(hex) {
-    hex = hex.replace('#', '');
-
-    const bigint = parseInt(hex, 16);
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
-
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-
-  return `
-    <ul class="furniture-color-list" data-color="${mainColor}">
-      ${colors
-        .map((color, index) => {
-          const rgbColor = hexToRgb(color);
-          return `
-            <li
-              class="color-circle ${index === 0 ? 'active' : ''}"
-              style="background-color: ${rgbColor};"
-              title="${rgbColor}">
-            </li>
-          `;
-        })
-        .join('')}
-    </ul>
-  `;
+  return markup;
 }
 
 export function renderCard(furnitures) {
@@ -53,7 +28,7 @@ export function renderCard(furnitures) {
       <li class="furniture-list-item" data-id="${_id}">
         <img class="furniture-img" src="${images?.[0]}" alt="${name}" />
         <h3 class="furniture-title">${name}</h3>
-         ${colorMarkup}
+         <ul class="furniture-color-list">${renderColor(colors)}</ul>
         <p class="furniture-price">${price} грн</p>
          <button
             type="button"

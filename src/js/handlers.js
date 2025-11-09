@@ -5,11 +5,10 @@ import { renderCategories, renderCard } from './render-functions';
 export async function getCategories() {
   try {
     const data = await fetchFurnitureCategory();
-    const categories = [['Всі товари'], ...data];
+    const categories = ({ name: 'Всі товари' }, [...data]);
     renderCategories(categories);
   } catch (error) {
-    console.error('Помилка при завантаженні категорій:', error);
-    util.toastMessage('Не вдалося завантажити категорії', 'error');
+    util.toastMessage('Не вдалося завантажити категорії');
   }
 }
 
@@ -19,7 +18,6 @@ export async function getFurnitureCard() {
     const furnitures = Array.isArray(data) ? data : data.furnitures || [];
     renderCard(furnitures);
   } catch (error) {
-    console.error('Помилка при завантаженні картки товарів:', error);
-    util.toastMessage('Не вдалося завантажити картки товарів', 'error');
+    util.toastMessage('Не вдалося завантажити картки товарів');
   }
 }
