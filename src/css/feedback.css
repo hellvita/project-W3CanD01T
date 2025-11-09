@@ -67,6 +67,7 @@
   align-items: stretch;
   width: auto; 
   flex-shrink: 0;  
+  padding: 4px 8px;
 }
 
 .feedback-card {
@@ -78,7 +79,7 @@
   height: 350px;
   max-height: 350px;
   border-radius: 16px; 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   text-align: left;
 }
 
@@ -159,6 +160,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
+  padding: 4px 4px 8px 4px;
 }
 
 .feedback-nav button {
@@ -224,7 +226,7 @@
 
 @media (max-width: 767px) {
   .feedback {
-    padding: 64px 20px;
+    padding: 64px 0;
   }
   .feedback-title {
     font-size: 36px;
@@ -259,7 +261,7 @@
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .feedback {
-    padding: 32px;
+    padding: 32px 0;
   }
   .feedback-card {
     max-width: 341px;
@@ -278,7 +280,7 @@
 
 @media (min-width: 1440px) {
   .feedback {
-    padding: 64px;
+    padding: 64px 0;
   }
   .feedback-card {
     max-width: 421px;
