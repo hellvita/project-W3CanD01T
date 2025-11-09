@@ -1,4 +1,5 @@
 import { initFeedback } from './js/feedback.js';
+import { initSectionFaq } from './js/faq';
 
 async function loadPartials() {
   const loads = document.querySelectorAll('load');
@@ -18,9 +19,7 @@ async function loadPartials() {
 document.addEventListener('DOMContentLoaded', async () => {
   await loadPartials();  
 
+  // Ініціалізація обох секцій
   initFeedback();
+  initSectionFaq();
 });
-
-
-
-

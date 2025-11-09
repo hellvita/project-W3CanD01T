@@ -1,4 +1,3 @@
-
 export const refs = {
   feedback: {
     list: null,
@@ -6,6 +5,9 @@ export const refs = {
     btnNext: null,
     btnPrev: null,
   },
+  faqSection: {
+    accordion: document.querySelector('.accordion-container')
+  }
 };
 
 export function setFeedbackRefs() {
