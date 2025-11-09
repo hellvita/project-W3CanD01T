@@ -9,6 +9,8 @@ export function onBurgerClick() {
   util.showBtn(refs.headerSection.closeBtn);
   refs.headerSection.closeBtn.addEventListener('click', onCloseNavClick);
 
+  refs.headerSection.menuModal.addEventListener('click', onMenuLinkClick);
+
   openNavMenu();
   util.preventScrolling();
 }
@@ -20,10 +22,14 @@ function onCloseNavClick() {
   util.showBtn(refs.headerSection.burgerBtn);
   refs.headerSection.burgerBtn.addEventListener('click', onBurgerClick);
 
+  refs.headerSection.menuModal.removeEventListener('click', onMenuLinkClick);
+
   closeNavMenu();
   util.allowScrolling();
 }
 
 function onMenuLinkClick(e) { 
-  console.dir(e.target);
+  const isNavLink = e.target.classList.contains('header-modal__link');
+  const isNavBtn = e.target.classList.contains('header-modal__button');
+  if (isNavLink || isNavBtn) onCloseNavClick();
 }
