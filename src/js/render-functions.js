@@ -7,7 +7,7 @@ export function renderFAQ(faqData) {
             <div class="ac">
                 <h3 class="ac-header">
                     <button type="button" class="ac-trigger">${q}<svg class="svg-sprite-arrow-down" width="17" height="10">
-                                <use href="/img/icons.svg#arrow-down"></use>
+                                <use href="img/icons.svg#arrow-down"></use>
                             </svg>
                         </button>
                     </h3>
