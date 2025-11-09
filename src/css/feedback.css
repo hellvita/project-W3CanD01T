@@ -70,23 +70,23 @@
 }
 
 .feedback-card {
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- gap: 24px;
- padding: 24px;
- height: 350px;
- max-height: 350px;
- border-radius: 16px; 
- box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
- text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  height: 350px;
+  max-height: 350px;
+  border-radius: 16px; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: left;
 }
 
 .feedback-card__stars{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   gap: 4px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px; 
 }
 
 .feedback-card__stars svg,
@@ -99,7 +99,7 @@
 }
 
 .feedback-card__text {
-   font-family:'Raleway Medium', sans-serif;
+  font-family:'Raleway Medium', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.6;
@@ -115,8 +115,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.6;
-  color: var(--color-neutral-darkest);
-  margin-bottom: 48px; 
+  color: var(--color-neutral-darkest); 
 }
 
 .feedback-controls {
@@ -125,7 +124,7 @@
   align-items: center;
   gap: 24px;
   width: 100%;
-  margin-bottom: 64px; 
+  margin-top: 48px; 
 }
 
 .feedback .feedback-pagination {
@@ -135,6 +134,12 @@
   align-items: center;
 }
 
+.feedback .swiper-pagination {
+  position: static !important; 
+  width: auto !important;     
+}
+
+
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
@@ -142,7 +147,7 @@
   opacity: 0.2;
   cursor: pointer;
   transition: opacity 0.3s ease, transform 0.2s ease;
-  background-color: #080C09 !important; 
+  background-color: #080C09; 
 }
 
 .feedback .swiper-pagination-bullet-active {
@@ -150,11 +155,10 @@
   background-color: #080C09; 
 }
 
-
 .feedback-nav {
   display: flex;
   gap: 16px;
-  align-items: center;  
+  align-items: center;
 }
 
 .feedback-nav button {
@@ -236,6 +240,19 @@
     width: 36px;
     height: 36px;
     border-width: 4px;  
+  }
+
+  .feedback-controls {
+    flex-wrap: wrap;           
+    justify-content: center;  
+    gap: 16px;                 
+}
+  .feedback-nav {
+    order: 2;                 
+  }
+  
+  .feedback .swiper-pagination {
+    order: 1;                  
   }
 }
 

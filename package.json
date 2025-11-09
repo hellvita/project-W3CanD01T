@@ -12,6 +12,7 @@
     "glob": "^11.0.0",
     "postcss": "^8.4.41",
     "postcss-sort-media-queries": "^5.2.0",
+    "prettier": "^3.6.2",
     "vite": "^5.4.6"
   },
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
