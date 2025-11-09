@@ -4,11 +4,13 @@
   background-color: var(--opacity-neutral-darkest-50);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+   align-items: center;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 64px 20px;
   transition: opacity 250ms ease;
   z-index: 1000;
+   box-sizing: border-box;
 }
 
 .modal-order-backdrop.is-hidden {
@@ -27,7 +29,7 @@
   border-radius: 8px;
   padding: 64px 20px 32px;
   width: 100%;
-  min-width: 335px;
+  max-width: 335px;
   box-shadow: 0 4px 40px var(--opacity-neutral-darkest-15);
   transition: transform 250ms ease, opacity 250ms ease;
 }
