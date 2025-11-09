@@ -1,3 +1,6 @@
+.faq-section {
+  padding: 48px 0;
+}
 .faq-section .ac {
   border: none;
   border-top: 1px solid var(--color-scheme-1-border);
@@ -36,9 +39,7 @@
 
 .faq-block {
   color: var(--color-scheme-1-text);
-  padding: 48px 0;
   max-width: 375px;
-  height: 635px;
   background: var(--color-scheme-1-background);
   display: flex;
   flex-direction: column;
@@ -61,7 +62,7 @@
   padding-right: 8px;
   padding-bottom: 24px;
 }
-/* для браузерів, які не підтримують svg sprites in background-image в CSS: */
+/* для браузерів, які не підтримують svg sprites in background-image in CSS: */
 .svg-sprite-arrow-down {
   fill: var(--color-scheme-1-text);
   stroke-width: 1px;
@@ -71,11 +72,10 @@
 .ac.is-active > .ac-header .svg-sprite-arrow-up {
   transform: rotate(180deg);
 }
-/* для браузерів, які не підтримують svg sprites in background-image в CSS ^ */
+/* для браузерів, які не підтримують svg sprites in background-image in CSS ^ */
 
 @media only screen and (min-width: 768px) {
   .faq-block {
-    padding: 48px 0;
     max-width: 768px;
     max-height: 531px;
   }
