@@ -15,7 +15,7 @@ export function onBurgerClick() {
   util.preventScrolling();
 }
 
-function onCloseNavClick() {
+export function onCloseNavClick() {
   util.hideBtn(refs.headerSection.closeBtn);
   refs.headerSection.closeBtn.removeEventListener('click', onCloseNavClick);
 
@@ -28,7 +28,7 @@ function onCloseNavClick() {
   util.allowScrolling();
 }
 
-function onMenuLinkClick(e) { 
+function onMenuLinkClick(e) {
   const isNavLink = e.target.classList.contains('header-modal__link');
   const isNavBtn = e.target.classList.contains('header-modal__button');
   if (isNavLink || isNavBtn) onCloseNavClick();

@@ -1,20 +1,31 @@
 import { refs } from './refs';
 import * as handler from './handlers';
-import { addStyle, removeStyles } from './helpers';
+import * as util from './helpers';
 
 export function initHeaderNav() {
-  // add no scroll
   refs.headerSection.burgerBtn.addEventListener('click', handler.onBurgerClick);
-  
+  addEventListener('resize', toggleModalVisibility);
+}
+
+function toggleModalVisibility() {
+  if (util.isDesktopView()) {
+    handler.onCloseNavClick();
+    util.hideBtn(refs.headerSection.burgerBtn);
+  } else {
+    if (!util.btnIsVisible(refs.headerSection.closeBtn)) {
+      util.showBtn(refs.headerSection.burgerBtn);
+    }
+  }
 }
 
 function updateModalPosition() {
-  const headerHeight = refs.headerSection.header.getBoundingClientRect().height - 0.5;
+  const headerHeight =
+    refs.headerSection.header.getBoundingClientRect().height - 0.5;
 
-  addStyle(refs.headerSection.menuModal, `top: ${headerHeight}px`);
+  util.addStyle(refs.headerSection.menuModal, `top: ${headerHeight}px`);
 }
 
-export function openNavMenu() { 
+export function openNavMenu() {
   refs.headerSection.menuModal.classList.remove('is-hidden');
 
   updateModalPosition();
@@ -22,10 +33,10 @@ export function openNavMenu() {
   addEventListener('resize', updateModalPosition);
 }
 
-export function closeNavMenu() {  
+export function closeNavMenu() {
   removeEventListener('resize', updateModalPosition);
 
-  removeStyles(refs.headerSection.menuModal);
+  util.removeStyles(refs.headerSection.menuModal);
 
   refs.headerSection.menuModal.classList.add('is-hidden');
 }
