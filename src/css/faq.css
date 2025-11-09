@@ -24,11 +24,6 @@
 }
 .faq-section .ac .ac-trigger::after {
   content: '' !important;
-  background-image: url('../img/arrow-up.svg');
-  background-size: 15px 15px;
-  width: 15px;
-  height: 15px;
-  right: -48px;
 }
 .ac.is-active > .ac-header .ac-trigger::after {
   transform: rotate(180deg);
@@ -62,6 +57,23 @@
   padding-right: 8px;
   padding-bottom: 24px;
 }
+/* для браузерів, які не підтримують svg sprites in background-image в CSS: */
+.svg-sprite-arrow-up {
+  position: absolute;
+  fill: var(--color-scheme-1-text);
+  stroke-width: 1px;
+  stroke: var(--color-scheme-1-text);
+  top: 40%;
+  right: -44px;
+}
+.faq-section .ac .ac-header {
+  position: relative;
+}
+.ac.is-active > .ac-header .svg-sprite-arrow-up {
+  transform: rotate(180deg);
+  top: 25%;
+}
+/* для браузерів, які не підтримують svg sprites in background-image в CSS ^ */
 
 @media only screen and (min-width: 768px) {
   .faq-block {
@@ -70,7 +82,11 @@
     max-height: 531px;
   }
   .faq-section .ac .ac-trigger {
-    max-width: 650px;
+    max-width: 100%;
+  }
+  .svg-sprite-arrow-up {
+    top: 25%;
+    right: 8px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -83,9 +99,9 @@
     font-size: 48px;
   }
   .faq-section .ac .ac-trigger {
-    max-width: 810px;
+    max-width: 100%;
   }
-  .faq-section .ac .ac-header .ac-trigger::after {
-    right: -188px !important;
+  .svg-sprite-arrow-up {
+    right: 8px;
   }
 }
