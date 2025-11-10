@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { initFeedback } from './js/feedback.js';
 import { initSectionFaq } from './js/faq';
 
@@ -23,3 +24,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFeedback();
   initSectionFaq();
 });
+=======
+import { refs } from './js/refs.js';
+import { initModal } from './js/modal.js';
+import { initOrderForm } from './js/order-form.js';
+import { initSectionFaq } from "./js/faq";
+
+initModal(refs.orderModal);
+initOrderForm();
+initSectionFaq();
+>>>>>>> 520cf6386e160f0b68fb7af55f57714daf01223b

@@ -18,3 +18,20 @@ export function roundRating(value) {
   if (decimal >= 0.8) result += 1;
   return result;
 }
+
+export function showSuccessToast(message) {
+  iziToast.success({
+    title: 'Успіх',
+    message,
+    position: 'topRight',
+  });
+}
+
+export function showErrorToast(message) {
+  iziToast.error({
+    title: 'Помилка',
+    message,
+    position: 'topRight',
+  });
+}
+
