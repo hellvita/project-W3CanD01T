@@ -8,17 +8,18 @@ let currentProductId = null;
 export function initModalDetails() {
   initModal(refs.modalDetails);
 
-  refs.modalDetails.furnitureList?.addEventListener('click', onFurnitureClick);
+ 
+  refs.furnitureList?.addEventListener('click', onFurnitureClick);
+}
 
-  function onFurnitureClick(event) {
-    const card = event.target.closest('[data-furniture-card]');
-    if (!card) return;
+function onFurnitureClick(event) {
+  const card = event.target.closest('[data-furniture-card]');
+  if (!card) return;
 
-    const id = card.dataset?.id;
-    if (!id) return;
+  const id = card.dataset?.id;
+  if (!id) return;
 
-    openModalDetails(id);
-  }
+  openModalDetails(id);
 }
 
 function createStars(rating) {
@@ -45,16 +46,61 @@ export async function openModalDetails(id) {
 
     const product = await fetchFurnitureById(id);
 
+
     refs.modalDetails.modalContent.innerHTML = getModalMarkup(product);
 
+    
     const ratingEl = refs.modalDetails.modalContent.querySelector('[data-modal-details-rating]');
     if (ratingEl) {
       ratingEl.innerHTML = createStars(product.rate || 0);
     }
 
-    const orderButton = refs.modalDetails.modalContent.querySelector('[data-modal-details-order-btn]');
-    orderButton?.addEventListener('click', onOrderClick);
+    const colorInputs = Array.from(refs.modalDetails.modalContent.querySelectorAll('.color-input'));
 
+    if (colorInputs.length > 0) {
+      const first = colorInputs[0];
+      first.checked = true;
+      first.closest('.color-option')?.classList.add('selected');
+      refs.orderModal.form.dataset.color = first.dataset.color;
+    }
+
+   
+    refs.modalDetails.modalContent.addEventListener('click', (e) => {
+      const option = e.target.closest('.color-option');
+      if (!option) return;
+
+      const input = option.querySelector('.color-input');
+      if (!input) return;
+
+      colorInputs.forEach(i => {
+        i.checked = false;
+        i.closest('.color-option')?.classList.remove('selected');
+      });
+
+      input.checked = true;
+      option.classList.add('selected');
+
+      refs.orderModal.form.dataset.color = input.dataset.color;
+    });
+
+    const bigImg = refs.modalDetails.modalContent.querySelector('.modal-details-big-image');
+    const smallImgs = Array.from(refs.modalDetails.modalContent.querySelectorAll('.modal-details-small-image'));
+
+    smallImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        bigImg.src = img.src;
+      });
+    });
+
+    refs.orderModal.form.dataset.modelId = id;
+
+  
+    const orderButton = refs.modalDetails.modalContent.querySelector('[data-modal-details-order-btn]');
+    if (orderButton) {
+      orderButton.addEventListener('click', onOrderClick);
+    }
+
+   
     openModal(refs.modalDetails);
 
   } catch (error) {

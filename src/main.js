@@ -9,6 +9,8 @@ initOrderForm();
 initSectionFaq();
 initModalDetails();
 
-import { openModalDetails } from './js/modal-details.js';
 
-    openModalDetails();
+
+
+
+
