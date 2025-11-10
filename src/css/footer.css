@@ -82,11 +82,6 @@
         max-width: 768px;
     }
 
-    .container .text {
-        margin-right: 0px;
-        padding-right: auto;
-    }
-
     .text.desktop {
         display: none;
     }
@@ -99,17 +94,16 @@
 }
 
 @media only screen and (min-width: 1440px) {
+    .footer {
+        padding-bottom: 0;
+    }
     .footer-container {
         flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 80px;
         max-width: 1312px;
-    }
-
-    .container .text {
-        margin-right: 80px;
-
+        padding: 25px 0;
     }
 
     .text.desktop {
@@ -130,10 +124,7 @@
         margin: 0;
     }
 
-    .nav.list .item:not(:last-child) {
-        margin-bottom: 0;
-        margin-right: 32px;
-    }
+
 
     .soc-media {
         margin-bottom: 0;
