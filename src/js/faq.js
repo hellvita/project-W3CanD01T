@@ -17,10 +17,10 @@ export async function initSectionFaq() {
             renderFAQ(faqData);
             initAccordion();
         } else {
-            error;
+            throw new Error('Не вдалося завантажити дані про часті питання');
         }
     } catch (error) {
-        toastMessage('Не вдалося завантажити дані про часті питання');
+        toastMessage(error.message);
     } finally {
         hideFaqLoader();        
     }
