@@ -34,10 +34,3 @@ export function hideFaqLoader() {
   refs.faqSection.faqLoader.classList.remove('faq-loader');
   refs.faqSection.faqBlock.classList.remove('no-active');
 }
-
-export function messageSomethingWrong() {
-    iziToast.error({
-            message: 'Sorry, could not upload data!',
-            position: "topRight",
-        })
-}

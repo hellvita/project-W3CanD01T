@@ -1,6 +1,7 @@
 import Accordion from "accordion-js";
-import { hideFaqLoader, messageSomethingWrong, renderFAQ, showFaqLoader } from "./render-functions.js";
+import { hideFaqLoader, renderFAQ, showFaqLoader } from "./render-functions.js";
 import { faqData } from "./constants.js";
+import { toastMessage } from "./helpers.js";
 
 function initAccordion() {
     new Accordion(".accordion-container");
@@ -14,12 +15,12 @@ export async function initSectionFaq() {
         
         if (response.length > 0) {
             renderFAQ(faqData);
-        initAccordion();
+            initAccordion();
         } else {
-            messageSomethingWrong();
+            error;
         }
     } catch (error) {
-        messageSomethingWrong();
+        toastMessage('Не вдалося завантажити дані про часті питання');
     } finally {
         hideFaqLoader();        
     }

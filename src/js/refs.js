@@ -17,8 +17,5 @@ export const refs = {
         faqLoader: document.querySelector('.faq-loader'),
         faqBlock: document.querySelector('.faq-block')
     },
-  faqSection: {
-    accordion: document.querySelector('.accordion-container'),
-  },
   paginationContainer: document.getElementById('furniture-pagination'),
 };
