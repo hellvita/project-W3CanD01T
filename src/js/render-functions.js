@@ -1,7 +1,5 @@
 import { refs } from './refs';
 import icons from '../img/icons.svg';
-import StarRating from 'star-rating.js';
-import 'star-rating.js/dist/star-rating.min.css';
 
 
 export function renderFAQ(faqData) {
