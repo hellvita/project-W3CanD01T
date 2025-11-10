@@ -107,9 +107,8 @@
     text-decoration: none;
     transition: all 0.2s ease;
     cursor: pointer;
-    font-family: "Raleway" Medium, sans-serif;
+    font-family: "Raleway Medium", sans-serif;
     font-size: 16px;
-    font-weight: 500;
   }
 
   .tui-page-btn:not(.tui-is-disabled):hover {
