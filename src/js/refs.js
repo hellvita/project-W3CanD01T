@@ -12,8 +12,9 @@ export const refs = {
     form: document.querySelector('[data-order-form]'),
   },
   faqSection: {
-    accordion: document.querySelector('.accordion-container')
-  }
+    accordion: document.querySelector('.accordion-container'),
+  },
+  paginationContainer: document.getElementById('furniture-pagination'),
 };
 
 export function setFeedbackRefs() {
