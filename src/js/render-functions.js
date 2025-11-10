@@ -1,7 +1,5 @@
 import { refs } from './refs';
 import icons from '../img/icons.svg';
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
 
 export function renderFAQ(faqData) {
   const markupFaq = faqData
