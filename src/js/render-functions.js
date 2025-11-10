@@ -24,11 +24,11 @@ export function renderFAQ(faqData) {
 }
 
 export function showFaqLoader() {
-  refs.faqSection.faqLoader.classList.replace('hidden', 'faq-loader');
+  refs.faqSection.faqLoader.classList.add('faq-loader');
   refs.faqSection.faqBlock.classList.add('no-active');
 }
 
 export function hideFaqLoader() {
-  refs.faqSection.faqLoader.classList.replace('faq-loader', 'hidden');
+  refs.faqSection.faqLoader.classList.remove('faq-loader');
   refs.faqSection.faqBlock.classList.remove('no-active');
 }

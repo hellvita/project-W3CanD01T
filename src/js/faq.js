@@ -8,7 +8,26 @@ function initAccordion() {
 
 export function initSectionFaq() {
     showFaqLoader();
-    // renderFAQ(faqData);
-    // hideFaqLoader();
-    initAccordion();
+    setTimeout(() => {
+        renderFAQ(faqData);
+        initAccordion();
+        hideFaqLoader();        
+    }, 3500); 
 }
+
+// async function getFaqData() {
+//     try {
+//         showFaqLoader();
+//         const response = await getFaqData();
+//         if (response.data.length) {
+//             return response.data;
+//         } else {
+//             console.log('Error');
+//             return [];
+//         }
+//     } catch (error) {
+//         console.log('Error');        
+//     } finally {
+//         hideFaqLoader();
+//     }
+// }

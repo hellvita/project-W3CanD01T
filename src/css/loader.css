@@ -119,7 +119,7 @@
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  color: #6c8cff;
+  color: var(--color-neutral-darkest);
 }
 .faq-loader:before,
 .faq-loader:after {
@@ -135,7 +135,7 @@
   animation: 1s spin linear infinite;
 }
 .faq-loader:after {
-  color: #ff3d00;
+  color: var(--color-madang);
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }

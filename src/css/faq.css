@@ -53,6 +53,9 @@
 .faq-block.no-active {
   height: 539px;
 }
+.accordion-container {
+  margin: auto 0;
+}
 
 .faq-block-title {
   font-family: 'Raleway Bold';
