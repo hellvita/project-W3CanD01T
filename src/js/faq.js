@@ -7,8 +7,8 @@ function initAccordion() {
 }
 
 export function initSectionFaq() {
-    showFaqLoader();
-    // renderFAQ(faqData);
+    // showFaqLoader();
+    renderFAQ(faqData);
     // hideFaqLoader();
     initAccordion();
 }

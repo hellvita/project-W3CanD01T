@@ -34,7 +34,12 @@
   content: '' !important;
 }
 .ac.is-active > .ac-header .svg-sprite-arrow-down {
-  transform: rotate(180deg);
+  transition: transform 1s ease;
+  transform: rotate(900deg);
+}
+.ac > .ac-header .svg-sprite-arrow-down {
+  transition: transform 300ms ease;
+  transform: rotate(0deg);
 }
 
 .faq-block {
