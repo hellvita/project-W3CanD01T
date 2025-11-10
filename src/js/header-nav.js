@@ -6,6 +6,7 @@ export function initHeaderNav() {
   refs.headerSection.burgerBtn.addEventListener('click', handler.onBurgerClick);
   toggleModalVisibility();
   addEventListener('resize', toggleModalVisibility);
+  addEventListener('resize', util.toggleScroll);
 }
 
 function toggleModalVisibility() {
@@ -31,11 +32,15 @@ export function openNavMenu() {
 
   updateModalPosition();
 
+  document.addEventListener('click', handler.onPageClick);
+
   addEventListener('resize', updateModalPosition);
 }
 
 export function closeNavMenu() {
   removeEventListener('resize', updateModalPosition);
+
+  document.addEventListener('click', handler.onPageClick);
 
   util.removeStyles(refs.headerSection.menuModal);
 

@@ -65,6 +65,15 @@ export function allowScrolling() {
   refs.body.classList.remove('no-scroll');
 }
 
+export function toggleScroll() {
+  allowScrolling();
+  if (isMobileView()) preventScrolling();
+}
+
 export function isDesktopView() {
   return window.innerWidth >= BREAKPOINTS.desktop;
+}
+
+export function isMobileView() {
+  return window.innerWidth < BREAKPOINTS.tablet;
 }

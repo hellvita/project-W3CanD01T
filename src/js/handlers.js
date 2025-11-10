@@ -1,4 +1,3 @@
-
 import { fetchFeedback } from './furniture-api.js';
 import { createFeedbackCard, renderStars } from './render-functions.js';
 import { showLoader, hideLoader } from './ui-loader.js';
@@ -17,15 +16,14 @@ export async function handleLoadFeedbacks() {
 
   try {
     const data = await fetchFeedback();
-    const feedbacks = data.feedbacks; 
+    const feedbacks = data.feedbacks;
 
     refs.feedback.list.innerHTML = '';
 
     feedbacks.forEach(feedback => {
-    const card = createFeedbackCard(feedback);
-    refs.feedback.list.appendChild(card);
+      const card = createFeedbackCard(feedback);
+      refs.feedback.list.appendChild(card);
     });
-
 
     const swiper = new Swiper('.feedback-slider', {
       modules: [Navigation, Pagination],
@@ -69,7 +67,7 @@ export function onBurgerClick() {
   refs.headerSection.menuModal.addEventListener('click', onMenuLinkClick);
 
   openNavMenu();
-  util.preventScrolling();
+  util.toggleScroll();
 }
 
 export function onCloseNavClick() {
@@ -91,9 +89,18 @@ function onMenuLinkClick(e) {
   if (isNavLink || isNavBtn) onCloseNavClick();
 }
 
+export function onPageClick(e) {
+  const clickOnMenu =
+    e.target === refs.headerSection.menuModal ||
+    refs.headerSection.menuModal.contains(e.target) ||
+    refs.headerSection.burgerBtn.contains(e.target);
+  if (!clickOnMenu) {
+    onCloseNavClick();
+  }
+}
+
 function onOrderButtonClick(modelId, color) {
   refs.orderModal.form.dataset.modelId = modelId;
   refs.orderModal.form.dataset.color = color;
   openModal(refs.orderModal);
 }
-
