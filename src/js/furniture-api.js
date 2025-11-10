@@ -1,14 +1,11 @@
 import axios from 'axios';
-import { BASE_URL, ENDPOINTS } from './constants';
+import { BASE_URL, ENDPOINTS } from './constants.js';
 
-axios.defaults.baseURL = BASE_URL;
+axios.defaults.baseURL = BASE_URL; 
 
-export async function fetchFurniture() {
-  const { data } = await axios(`${ENDPOINTS.FURNITURE}`, {
-    params: {
-      page: 1,
-      limit: 8,
-    },
+export async function fetchFeedback() {
+  const { data } = await axios(ENDPOINTS.FEEDBACK, {
+    params: { limit: 10 },
   });
   return data;
 }
