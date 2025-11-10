@@ -20,6 +20,10 @@ function toggleModalVisibility() {
   }
 }
 
+export function menuIsClosed() {
+  return refs.headerSection.menuModal.classList.contains('is-hidden');
+}
+
 function updateModalPosition() {
   const headerHeight =
     refs.headerSection.header.getBoundingClientRect().height - 0.5;
