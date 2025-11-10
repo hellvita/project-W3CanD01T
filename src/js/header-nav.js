@@ -44,7 +44,7 @@ export function openNavMenu() {
 export function closeNavMenu() {
   removeEventListener('resize', updateModalPosition);
 
-  document.addEventListener('click', handler.onPageClick);
+  document.removeEventListener('click', handler.onPageClick);
 
   util.removeStyles(refs.headerSection.menuModal);
 
