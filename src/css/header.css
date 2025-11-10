@@ -104,13 +104,6 @@
   transition: opacity 250ms ease-in-out;
 }
 
-.header__nav-n-btn.visible {
-  display: block;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
 .header-nav__list {
   display: flex;
   gap: 32px;
@@ -147,5 +140,14 @@
   .header__modal .container {
     padding-left: 60px;
     padding-right: 60px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .header__nav-n-btn {
+    display: block;
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 }

@@ -12,14 +12,10 @@ function toggleModalVisibility() {
   if (util.isDesktopView()) {
     handler.onCloseNavClick();
     util.hideElement(refs.headerSection.burgerBtn);
-
-    util.showElement(refs.headerSection.navNbtn);
   } else {
     if (!util.btnIsVisible(refs.headerSection.closeBtn)) {
       util.showElement(refs.headerSection.burgerBtn);
     }
-
-    util.hideElement(refs.headerSection.navNbtn);
   }
 }
 

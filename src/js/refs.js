@@ -5,7 +5,6 @@ export const refs = {
     menuModal: document.querySelector('.js-header__modal'),
     burgerBtn: document.querySelector('.js-header__menu-btn'),
     closeBtn: document.querySelector('.js-header__close-btn'),
-    navNbtn: document.querySelector('.header__nav-n-btn'),
   },
   orderModal: {
     backdrop: document.querySelector('[data-modal-order]'),
