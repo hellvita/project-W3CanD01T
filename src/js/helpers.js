@@ -9,8 +9,8 @@ iziToast.settings({
   transitionOut: 'flipOutX',
 });
 
-export const toastMessage = message => iziToast.show({ message: [message] });
-
+export const toastMessage = message => iziToast.show({ message });
+// export const toastMessage = message => iziToast.show({ message: [message] });
 
 export function showSuccessToast(message) {
   iziToast.success({

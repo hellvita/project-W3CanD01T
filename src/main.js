@@ -1,4 +1,11 @@
-import { initSectionFaq } from "./js/faq";
+import { initFurnitureSection } from './js/furniture';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFurnitureSection();
+});
+// initFurnitureSection();
+
+import { initSectionFaq } from './js/faq';
 import { refs } from './js/refs.js';
 import { initModal } from './js/modal.js';
 import { initOrderForm } from './js/order-form.js';
