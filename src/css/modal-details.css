@@ -149,6 +149,7 @@ font-family: 'Raleway Bold', sans-serif;
     border-radius: 64px;
     cursor: pointer;
     border: 3px solid transparent;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     transition: border-color 0.3s, transform 0.2s;
 }
 
@@ -172,7 +173,11 @@ font-family: 'Raleway Bold', sans-serif;
 .modal-details-dimensions {
     margin-bottom: 24px;
 }
-
+.feedback-card__stars svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-star);
+}
 .modal-details-order-btn {
     max-width: 295px;
     display: block;

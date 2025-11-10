@@ -22,5 +22,13 @@ export async function sendOrder(orderData) {
     throw error;
   }
 }
-
+export async function fetchFurnitureById(id = '682f9bbf8acbdf505592ac36') {
+  try {
+    const { data } = await axios.get(`${ENDPOINTS.FURNITURE}/${id}`);
+    return data;
+  } catch (error) {
+    console.error(`❌ Error fetching furniture by ID ${id}:`, error);
+    throw error;
+  }
+}
 
