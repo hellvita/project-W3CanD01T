@@ -36,3 +36,15 @@ export async function fetchFurnitureDetails(id) {
 
   return data;
 }
+
+export async function sendOrder(orderData) {
+  try {
+    const { data } = await axios.post(ENDPOINTS.ORDER, orderData);
+    return data;
+  } catch (error) {
+    console.error('❌ Order submission error:', error);
+    throw error;
+  }
+}
+
+

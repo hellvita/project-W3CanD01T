@@ -40,3 +40,11 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
     refs.loadMoreBtn?.classList.add('visually-hidden');
   }
 }
+import { refs } from './refs.js';
+import { openModal } from './modal.js';
+
+function onOrderButtonClick(modelId, color) {
+  refs.orderModal.form.dataset.modelId = modelId;
+  refs.orderModal.form.dataset.color = color;
+  openModal(refs.orderModal);
+}
