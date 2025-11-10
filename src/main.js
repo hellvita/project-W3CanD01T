@@ -1,10 +1,10 @@
-
 import { initFeedback } from './js/feedback.js';
 import { initSectionFaq } from './js/faq';
 import { refs } from './js/refs.js';
+import { initHeaderNav } from './js/header-nav';
+import { initPagination } from './js/paginator.js';
 import { initModal } from './js/modal.js';
 import { initOrderForm } from './js/order-form.js';
-import { initPagination } from './js/paginator.js';
 
 async function loadPartials() {
   const loads = document.querySelectorAll('load');
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initModal(refs.orderModal);
   initOrderForm();
   initPagination();
+  initHeaderNav();
 });
 
 
