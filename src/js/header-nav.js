@@ -31,11 +31,15 @@ export function openNavMenu() {
 
   updateModalPosition();
 
+  document.addEventListener('click', handler.onPageClick);
+
   addEventListener('resize', updateModalPosition);
 }
 
 export function closeNavMenu() {
   removeEventListener('resize', updateModalPosition);
+
+  document.addEventListener('click', handler.onPageClick);
 
   util.removeStyles(refs.headerSection.menuModal);
 

@@ -35,6 +35,15 @@ function onMenuLinkClick(e) {
   if (isNavLink || isNavBtn) onCloseNavClick();
 }
 
+export function onPageClick(e) {
+  const clickOnMenu =
+    e.target === refs.headerSection.menuModal ||
+    refs.headerSection.menuModal.contains(e.target);
+  if (!clickOnMenu) {
+    // onCloseNavClick();
+  }
+}
+
 function onOrderButtonClick(modelId, color) {
   refs.orderModal.form.dataset.modelId = modelId;
   refs.orderModal.form.dataset.color = color;
