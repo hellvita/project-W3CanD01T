@@ -32,13 +32,12 @@ export function btnIsVisible(button) {
   return button.classList.contains('visible');
 }
 
-export function hideBtn(button) {
-  console.log(button);
-  button.classList.remove('visible');
+export function hideElement(element) {
+  element.classList.remove('visible');
 }
 
-export function showBtn(button) {
-  button.classList.add('visible');
+export function showElement(element) {
+  element.classList.add('visible');
 }
 
 export function addStyle(element, style = '') {

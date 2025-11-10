@@ -4,17 +4,22 @@ import * as util from './helpers';
 
 export function initHeaderNav() {
   refs.headerSection.burgerBtn.addEventListener('click', handler.onBurgerClick);
+  toggleModalVisibility();
   addEventListener('resize', toggleModalVisibility);
 }
 
 function toggleModalVisibility() {
   if (util.isDesktopView()) {
     handler.onCloseNavClick();
-    util.hideBtn(refs.headerSection.burgerBtn);
+    util.hideElement(refs.headerSection.burgerBtn);
+
+    util.showElement(refs.headerSection.navNbtn);
   } else {
     if (!util.btnIsVisible(refs.headerSection.closeBtn)) {
-      util.showBtn(refs.headerSection.burgerBtn);
+      util.showElement(refs.headerSection.burgerBtn);
     }
+
+    util.hideElement(refs.headerSection.navNbtn);
   }
 }
 
