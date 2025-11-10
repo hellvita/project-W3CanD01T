@@ -1,17 +1,23 @@
 import { refs } from './refs';
-import { getCategories, chooseCategory, hendlerClickBtn } from './handlers';
+import * as util from './helpers';
+
+import {
+  getCategories,
+  getFurnitureCard,
+  chooseCategory,
+  hendlerClickBtn,
+} from './handlers';
 
 export async function initFurnitureSection() {
   try {
+    console.log('getFurnitureCard викликано');
     await getCategories();
     // await getFurnitureCard(currentCategory, currentPage, limit);
+    await getFurnitureCard('all', 1, 8);
   } catch (error) {
     util.toastMessage('Не вдалося завантажити меблі або категорії');
   }
 }
-
-// refs.categoriesList.addEventListener('click', chooseCategory);
-// refs.loadMoreBtn.addEventListener('click', hendlerClickBtn);
 
 document.addEventListener('DOMContentLoaded', () => {
   initFurnitureSection();
