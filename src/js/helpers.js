@@ -1,4 +1,5 @@
 import { BREAKPOINTS } from './constants';
+import { menuIsClosed } from './header-nav';
 import { refs } from './refs';
 import iziToast from 'izitoast';
 
@@ -66,8 +67,8 @@ export function allowScrolling() {
 }
 
 export function toggleScroll() {
-  allowScrolling();
   if (isMobileView()) preventScrolling();
+  if (menuIsClosed) allowScrolling();
 }
 
 export function isDesktopView() {
