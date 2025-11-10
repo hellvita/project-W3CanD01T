@@ -22,8 +22,6 @@
     "axios": "^1.13.2",
     "css-star-rating": "^1.3.1",
     "izitoast": "^1.4.0",
-    "jquery": "^3.7.1",
-    "raty": "^1.0.5",
     "raty-js": "^4.3.0",
     "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.2.0",
