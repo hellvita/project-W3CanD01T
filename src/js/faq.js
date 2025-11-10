@@ -7,6 +7,6 @@ function initAccordion() {
 }
 
 export function initSectionFaq() {
-    renderFAQ(faqData);
+    // renderFAQ(faqData);
     initAccordion();
 }
