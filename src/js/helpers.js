@@ -10,3 +10,20 @@ iziToast.settings({
 });
 
 export const toastMessage = message => iziToast.show({ message: [message] });
+
+
+export function showSuccessToast(message) {
+  iziToast.success({
+    title: 'Успіх',
+    message,
+    position: 'topRight',
+  });
+}
+
+export function showErrorToast(message) {
+  iziToast.error({
+    title: 'Помилка',
+    message,
+    position: 'topRight',
+  });
+}
