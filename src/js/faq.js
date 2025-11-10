@@ -1,5 +1,5 @@
 import Accordion from "accordion-js";
-import { renderFAQ } from "./render-functions.js";
+import { hideFaqLoader, renderFAQ, showFaqLoader } from "./render-functions.js";
 import { faqData } from "./constants.js";
 
 function initAccordion() {
@@ -7,6 +7,8 @@ function initAccordion() {
 }
 
 export function initSectionFaq() {
+    showFaqLoader();
     // renderFAQ(faqData);
+    // hideFaqLoader();
     initAccordion();
 }

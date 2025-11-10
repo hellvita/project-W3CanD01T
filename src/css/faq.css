@@ -45,6 +45,9 @@
   flex-direction: column;
   align-items: center;
 }
+.faq-block.no-active {
+  height: 539px;
+}
 
 .faq-block-title {
   font-family: 'Raleway Bold';
@@ -74,11 +77,15 @@
 }
 /* для браузерів, які не підтримують svg sprites in background-image in CSS ^ */
 
+
 @media only screen and (min-width: 768px) {
   .faq-block {
     max-width: 768px;
     max-height: 531px;
   }
+  .faq-block.no-active {
+  height: 435px;
+}
   .faq-section .ac .ac-trigger {
     max-width: 100%;
   }
@@ -91,7 +98,14 @@
     max-width: 1440px;
     max-height: 610px;
   }
+  .faq-block.no-active {
+  height: 450px;
+}
   .faq-block-title {
     font-size: 48px;
   }
+}
+
+.hidden {
+  display: none;
 }
