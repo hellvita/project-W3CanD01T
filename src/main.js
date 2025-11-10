@@ -7,6 +7,6 @@ import { initOrderForm } from './js/order-form.js';
 
 initHeaderNav();
 initPagination();
-initSectionFaq();
+await initSectionFaq();
 initModal(refs.orderModal);
 initOrderForm();
