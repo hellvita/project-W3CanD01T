@@ -26,15 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initFeedback();
   initSectionFaq();
+  await initSectionFaq();
   initModal(refs.orderModal);
   initOrderForm();
   initPagination();
   initHeaderNav();
 });
-
-
-
-
-
 
 
