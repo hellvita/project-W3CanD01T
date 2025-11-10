@@ -22,3 +22,13 @@ export function renderFAQ(faqData) {
 
   refs.faqSection.accordion.innerHTML = markupFaq;
 }
+
+export function showFaqLoader() {
+  refs.faqSection.faqLoader.classList.add('faq-loader');
+  refs.faqSection.faqBlock.classList.add('no-active');
+}
+
+export function hideFaqLoader() {
+  refs.faqSection.faqLoader.classList.remove('faq-loader');
+  refs.faqSection.faqBlock.classList.remove('no-active');
+}

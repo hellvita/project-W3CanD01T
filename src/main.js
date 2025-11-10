@@ -1,10 +1,12 @@
-import { initSectionFaq } from "./js/faq";
 import { refs } from './js/refs.js';
+import { initHeaderNav } from './js/header-nav';
+import { initPagination } from './js/paginator.js';
+import { initSectionFaq } from './js/faq';
 import { initModal } from './js/modal.js';
 import { initOrderForm } from './js/order-form.js';
-import { initPagination } from './js/paginator.js';
 
-initSectionFaq();
+initHeaderNav();
+initPagination();
+await initSectionFaq();
 initModal(refs.orderModal);
 initOrderForm();
-initPagination();

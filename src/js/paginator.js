@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { refs } from './refs.js';
+import icons from '../img/icons.svg';
 
 export function initPagination() {
     const { paginationContainer } = refs;
@@ -11,13 +12,13 @@ export function initPagination() {
 
     const prevIcon = `
     <svg width="14" height="14" class="left-arrow">
-    <use href="/img/icons.svg#arrow-left"></use>  
+    <use href="${icons}#arrow-left"></use>  
     </svg>
     `;
 
     const nextIcon = `
     <svg width="14" height="14" class="right-arrow">
-        <use href="/img/icons.svg#arrow-right"></use>  
+        <use href="${icons}#arrow-right"></use>  
     </svg>
 `;
 
