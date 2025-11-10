@@ -1,3 +1,6 @@
 import { initFurnitureSection } from './js/furniture';
 
-initFurnitureSection();
+document.addEventListener('DOMContentLoaded', () => {
+  initFurnitureSection();
+});
+// initFurnitureSection();

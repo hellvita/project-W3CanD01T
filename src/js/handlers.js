@@ -8,7 +8,7 @@ export async function getCategories() {
     const categories = await fetchFurnitureCategory();
     renderCategories(categories);
   } catch (error) {
-    util.toastMessage('Не вдалося завантажити категорії');
+    throw error;
   }
 }
 
