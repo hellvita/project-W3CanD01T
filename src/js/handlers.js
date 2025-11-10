@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import * as util from './helpers';
 import { openNavMenu, closeNavMenu } from './header-nav';
+import { openModal } from './modal.js';
 
 export function onBurgerClick() {
   util.hideBtn(refs.headerSection.burgerBtn);
@@ -32,4 +33,10 @@ function onMenuLinkClick(e) {
   const isNavLink = e.target.classList.contains('header-modal__link');
   const isNavBtn = e.target.classList.contains('header-modal__button');
   if (isNavLink || isNavBtn) onCloseNavClick();
+}
+
+function onOrderButtonClick(modelId, color) {
+  refs.orderModal.form.dataset.modelId = modelId;
+  refs.orderModal.form.dataset.color = color;
+  openModal(refs.orderModal);
 }

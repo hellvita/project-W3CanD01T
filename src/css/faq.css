@@ -1,0 +1,97 @@
+.faq-section {
+  padding: 48px 0;
+}
+.faq-section .ac {
+  border: none;
+  border-top: 1px solid var(--color-scheme-1-border);
+  margin: 0;
+}
+.faq-section .ac:last-child {
+  border-bottom: 1px solid var(--color-scheme-1-border);
+}
+.faq-section .ac .ac-header {
+  margin: 20px 0;
+  padding-right: 8px;
+}
+.faq-section .ac .ac-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 100%;
+  border: none;
+  color: var(--color-scheme-1-text);
+  padding: 0;
+  font-family: 'Raleway Bold';
+  font-size: 18px;
+  line-height: 160%;
+}
+.ac-trigger:focus,
+.ac-trigger:hover {
+  opacity: 0.5;
+}
+.faq-section .ac .ac-trigger::after {
+  content: '' !important;
+}
+.ac.is-active > .ac-header .svg-sprite-arrow-down {
+  transform: rotate(180deg);
+}
+
+.faq-block {
+  color: var(--color-scheme-1-text);
+  max-width: 375px;
+  background: var(--color-scheme-1-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq-block-title {
+  font-family: 'Raleway Bold';
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.faq-block-answer {
+  font-family: 'Raleway Regular';
+  font-size: 16px;
+  line-height: 160%;
+  padding-right: 8px;
+  padding-bottom: 24px;
+}
+/* для браузерів, які не підтримують svg sprites in background-image in CSS: */
+.svg-sprite-arrow-down {
+  fill: var(--color-scheme-1-text);
+  stroke-width: 1px;
+  stroke: var(--color-scheme-1-text);
+  flex-shrink: 0;
+}
+.ac.is-active > .ac-header .svg-sprite-arrow-up {
+  transform: rotate(180deg);
+}
+/* для браузерів, які не підтримують svg sprites in background-image in CSS ^ */
+
+@media only screen and (min-width: 768px) {
+  .faq-block {
+    max-width: 768px;
+    max-height: 531px;
+  }
+  .faq-section .ac .ac-trigger {
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .faq-section {
+    padding: 80px 0;
+  }
+  .faq-block {
+    max-width: 1440px;
+    max-height: 610px;
+  }
+  .faq-block-title {
+    font-size: 48px;
+  }
+}
