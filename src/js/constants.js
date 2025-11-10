@@ -7,6 +7,32 @@ export const ENDPOINTS = {
   ORDER: '/orders',
 };
 
+export const categoriesImg = {
+  'Всі товари': '../img/furniture/furniture-categories/all-products.webp',
+  "М'які меблі":
+    '../img/furniture/furniture-categories/upholstered-furniture.webp',
+  'Шафи та системи зберігання':
+    '../img/furniture/furniture-categories/cabinets-storage-systems.webp',
+  'Ліжка та матраци':
+    '../img/furniture/furniture-categories/beds-mattresses.webp',
+  Столи: '../img/furniture/furniture-categories/tables.webp',
+  'Стільці та табурети':
+    '../img/furniture/furniture-categories/chairs-stools.webp',
+  Кухні: '../img/furniture/furniture-categories/kitchens.webp',
+  'Меблі для дитячої':
+    '../img/furniture/furniture-categories/furniture-nursery.webp',
+  'Меблі для офісу':
+    '../img/furniture/furniture-categories/office-furniture.webp',
+  'Меблі для передпокою':
+    '/img/furniture/furniture-categories/hallway-furniture.webp',
+  'Меблі для ванної кімнати':
+    '../img/furniture/furniture-categories/bathroom-furniture.webp',
+  'Садові та вуличні меблі':
+    '../img/furniture/furniture-categories/garden-furniture.webp',
+  'Декор та аксесуари':
+    '../img/furniture/furniture-categories/decor-accessories.webp',
+};
+
 export let currentPage = 1;
 export const limit = 8;
 export let currentCategory = 'all';
