@@ -1,33 +1,31 @@
 import Accordion from "accordion-js";
-import { hideFaqLoader, renderFAQ, showFaqLoader } from "./render-functions.js";
+import { hideFaqLoader, messageSomethingWrong, renderFAQ, showFaqLoader } from "./render-functions.js";
 import { faqData } from "./constants.js";
 
 function initAccordion() {
     new Accordion(".accordion-container");
 }
 
-export function initSectionFaq() {
-    showFaqLoader();
-    setTimeout(() => {
-        renderFAQ(faqData);
+export async function initSectionFaq() {
+    
+    try {
+        showFaqLoader();
+        const response = await getFaqData();
+        
+        if (response.length > 0) {
+            renderFAQ(faqData);
         initAccordion();
+        } else {
+            messageSomethingWrong();
+        }
+    } catch (error) {
+        messageSomethingWrong();
+    } finally {
         hideFaqLoader();        
-    }, 3500); 
+    }
 }
 
-// async function getFaqData() {
-//     try {
-//         showFaqLoader();
-//         const response = await getFaqData();
-//         if (response.data.length) {
-//             return response.data;
-//         } else {
-//             console.log('Error');
-//             return [];
-//         }
-//     } catch (error) {
-//         console.log('Error');        
-//     } finally {
-//         hideFaqLoader();
-//     }
-// }
+async function getFaqData() {
+    const data = faqData;
+    return data;
+}

@@ -1,5 +1,7 @@
 import { refs } from './refs';
 import icons from '../img/icons.svg';
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 export function renderFAQ(faqData) {
   const markupFaq = faqData
@@ -31,4 +33,11 @@ export function showFaqLoader() {
 export function hideFaqLoader() {
   refs.faqSection.faqLoader.classList.remove('faq-loader');
   refs.faqSection.faqBlock.classList.remove('no-active');
+}
+
+export function messageSomethingWrong() {
+    iziToast.error({
+            message: 'Sorry, could not upload data!',
+            position: "topRight",
+        })
 }
