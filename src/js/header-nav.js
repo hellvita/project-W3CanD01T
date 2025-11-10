@@ -6,6 +6,7 @@ export function initHeaderNav() {
   refs.headerSection.burgerBtn.addEventListener('click', handler.onBurgerClick);
   toggleModalVisibility();
   addEventListener('resize', toggleModalVisibility);
+  addEventListener('resize', util.toggleScroll);
 }
 
 function toggleModalVisibility() {
