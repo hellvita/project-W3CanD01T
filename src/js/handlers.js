@@ -1,4 +1,3 @@
-
 import { fetchFeedback } from './furniture-api.js';
 import { createFeedbackCard, renderStars } from './render-functions.js';
 import { showLoader, hideLoader } from './ui-loader.js';
@@ -13,14 +12,17 @@ export async function handleLoadFeedbacks() {
   showLoader();
 
   try {
-    const feedbacks = await fetchFeedback();
+    const data = await fetchFeedback();
+    const feedbacks = data.feedbacks; 
+
     refs.feedback.list.innerHTML = '';
 
-    feedbacks.slice(0, 10).forEach(f => {
-      refs.feedback.list.appendChild(createFeedbackCard(f));
+    feedbacks.forEach(feedback => {
+    const card = createFeedbackCard(feedback);
+    refs.feedback.list.appendChild(card);
     });
 
-    
+
     const swiper = new Swiper('.feedback-slider', {
       modules: [Navigation, Pagination],
       slidesPerView: 1,
@@ -38,7 +40,6 @@ export async function handleLoadFeedbacks() {
 
     renderStars();
 
-   
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight') {
         refs.feedback.btnNext.click();

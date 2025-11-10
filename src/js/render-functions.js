@@ -1,10 +1,10 @@
-import { refs } from './refs';
-
 import Raty from 'raty-js';
 import starOn from '../img/feedback/starOn.png';
 import starOff from '../img/feedback/starOff.png';
 import starHalf from '../img/feedback/starHalf.png';
 import { roundRating } from './helpers.js';
+import icons from '../img/icons.svg';
+import { refs } from './refs';
 
 export function createFeedbackCard(feedback) {
   const rating = roundRating(feedback.rate);
@@ -28,8 +28,6 @@ export function renderStars() {
     raty.init();
   });
 }
-
-import icons from '../img/icons.svg';
 
 export function renderFAQ(faqData) {
   const markupFaq = faqData

@@ -11,7 +11,6 @@
 }
 
 .feedback-title {
-  font-weight: 700;
   font-size: 48px;
   line-height: 1.2;
   letter-spacing: 0.01em;
@@ -19,8 +18,7 @@
   font-family:'Raleway Bold', sans-serif;
 }
 
-.feedback-subtitle {
-  font-weight: 400;          
+.feedback-subtitle {        
   font-size: 18px;           
   line-height: 1.6;  
   margin-bottom: 80px;   
@@ -101,7 +99,6 @@
 
 .feedback-card__text {
   font-family:'Raleway Medium', sans-serif;
-  font-weight: 500;
   font-size: 20px;
   line-height: 1.6;
   color: var(--color-neutral-darkest);
@@ -113,7 +110,6 @@
 
 .feedback-card__author {
   font-family: 'Raleway Bold', sans-serif; 
-  font-weight: 700;
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-neutral-darkest); 

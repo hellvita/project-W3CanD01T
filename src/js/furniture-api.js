@@ -1,8 +1,11 @@
 import axios from 'axios';
-
-axios.defaults.baseURL = 'https://furniture-store-v2.b.goit.study/api';
+import { BASE_URL, ENDPOINTS } from './constants.js';
 
 export async function fetchFeedback() {
-  const response = await axios.get('/feedbacks');
-  return response.data.feedbacks;
+  const { data } = await axios(`${BASE_URL}${ENDPOINTS.FEEDBACK}`, {
+    params: { limit: 10 },
+  });
+  return data;
 }
+
+
