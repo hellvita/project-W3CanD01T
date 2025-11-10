@@ -1,6 +1,6 @@
+import { refs } from './js/refs.js';
 import { initFeedback } from './js/feedback.js';
 import { initSectionFaq } from './js/faq.js';
-import { refs } from './js/refs.js';
 import { initHeaderNav } from './js/header-nav';
 import { initPagination } from './js/paginator.js';
 import { initModal } from './js/modal.js';
