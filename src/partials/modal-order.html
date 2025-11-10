@@ -1,0 +1,61 @@
+<div class="modal-order-backdrop is-hidden" data-modal-order>
+  <div class="modal-order">
+    <button
+      type="button"
+      class="modal-close-btn"
+      aria-label="Close modal"
+      data-modal-order-close
+    >
+      <svg class="modal-close-icon" width="15" height="15">
+        <use href="/img/icons.svg#close-icon"></use>
+      </svg>
+    </button>
+
+    <h2 class="modal-order-title">Замовити</h2>
+
+    <form class="modal-order-form" data-order-form>
+      <label class="form-label">
+        Ім’я*
+        <input
+          type="text"
+          name="name"
+          class="form-input"
+          placeholder="Дмитро"
+          required
+          data-input-name
+        />
+      </label>
+
+      <label class="form-label">
+        Телефон*
+        <input
+          type="tel"
+          name="phone"
+          class="form-input"
+          placeholder="+38 099 123 22 11"
+          pattern="^\+?\d[\d\s]{9,14}$"
+          inputmode="tel"
+          required
+          data-input-phone
+        />
+      </label>
+
+      <label class="form-label">
+        Коментар
+        <textarea
+          name="comment"
+          class="form-textarea"
+          placeholder="Введіть ваш коментар"
+          data-input-comment
+        ></textarea>
+      </label>
+      <button
+        type="submit"
+        class="button-main btn--red modal-submit-btn"
+        data-form-submit
+      >
+        Надіслати заявку
+      </button>
+    </form>
+  </div>
+</div>
