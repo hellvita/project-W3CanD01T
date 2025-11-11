@@ -28,6 +28,7 @@ import { renderCategories, renderCard } from './render-functions';
 import { setActiveCategory } from './categories.js';
 import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
 import { initPagination } from './paginator.js';
+import { initModal } from './modal.js';
 
 export async function onCategoryClick(event) {
   const categoryEl = event.target.closest('.category-item');
@@ -100,6 +101,8 @@ export async function getFurnitureInfo(id) {
   try {
     const data = await fetchFurnitureById(id);
     renderDetailModal(data);
+    refs.modalDetails.closeBtn = document.getElementById('closeModalBtn');
+    initModal(refs.modalDetails);
   } catch (error) {
     throw error;
   }

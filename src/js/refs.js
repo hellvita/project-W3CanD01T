@@ -32,7 +32,7 @@ export const refs = {
   modalDetails: {
     backdrop: document.querySelector('[data-modal-details]'),
     modalContent: document.querySelector('[data-modal-details-content]'),
-    closeBtn: document.querySelector('[data-modal-details-close]'),
+    closeBtn: null,
     openBtn: null,
     furnitureId: null,
   },

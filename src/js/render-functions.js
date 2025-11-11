@@ -160,7 +160,6 @@ export function renderDetailModal(furniture) {
       type="button"
       class="modal-details-close"
       id="closeModalBtn"
-      data-modal-details-close
     >
       <svg width="16" height="16">
         <use href="${icons}#close-icon"></use>
