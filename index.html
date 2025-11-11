@@ -38,7 +38,7 @@
     <link
       rel="preload"
       as="image"
-      href="/img/hero/herobaner_mobile.webp"
+      href="/project-W3CanD01T/assets/hero-baner-mobile-BOXUHbxg.webp"
       fetchpriority="high"
     />
 
@@ -53,18 +53,21 @@
     <script type="module" crossorigin src="/project-W3CanD01T/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-W3CanD01T/assets/vendor-D9G7cJIl.js">
     <link rel="stylesheet" crossorigin href="/project-W3CanD01T/assets/vendor-DnGaGgwy.css">
-    <link rel="stylesheet" crossorigin href="/project-W3CanD01T/assets/index-CWkKXYHb.css">
+    <link rel="stylesheet" crossorigin href="/project-W3CanD01T/assets/index-D-Uw7ixo.css">
   </head>
   <body>
     <header class="header">
   <div class="container header__wrapper">
-    <a class="header__logo header--anim" href="./index.html"
+    <a class="header__logo header--anim" href="./index.html" aria-label="logo"
       ><svg width="158" height="35">
         <use href="/project-W3CanD01T/assets/icons-CTT8QCMD.svg#mebleria-logo"></use>
       </svg>
     </a>
 
-    <button class="header__menu-btn header--anim js-header__menu-btn">
+    <button
+      class="header__menu-btn header--anim js-header__menu-btn"
+      aria-label="menu button"
+    >
       <svg width="24" height="24">
         <use href="/project-W3CanD01T/assets/icons-CTT8QCMD.svg#menu-icon"></use>
       </svg>
@@ -478,7 +481,7 @@
         <div class="feedback-navigation feedback-nav">
           <button
             type="button"
-            class="feedback-btn-prev"
+            class="feedback-btn-prev button-main button-main.btn--grey"
             aria-label="Попередній відгук"
           >
             <svg width="14" height="14">
@@ -488,7 +491,7 @@
 
           <button
             type="button"
-            class="feedback-btn-next"
+            class="feedback-btn-next button-main button-main.btn--grey"
             aria-label="Наступний відгук"
           >
             <svg width="14" height="14">
@@ -505,7 +508,7 @@
 
     <footer class="footer">
   <div class="container footer__wrapper">
-    <a class="footer__logo footer-anim" href="./index.html">
+    <a class="footer__logo footer-anim" href="./index.html" aria-label="logo">
       <svg class="logo" width="220" height="48">
         <use href="/project-W3CanD01T/assets/icons-CTT8QCMD.svg#mebleria-logo"></use>
       </svg>
@@ -518,16 +521,18 @@
     <nav class="footer-nav">
       <ul class="footer-nav__list">
         <li class="footer-nav__item">
-          <a class="footer-nav__link" href="#">Наші меблі</a>
+          <a class="footer-nav__link" href="#mebleria-furniture-list"
+            >Наші меблі</a
+          >
         </li>
         <li class="footer-nav__item">
-          <a class="footer-nav__link" href="#">Про нас</a>
+          <a class="footer-nav__link" href="#mebleria-about-us">Про нас</a>
         </li>
         <li class="footer-nav__item">
-          <a class="footer-nav__link" href="#">Часті питання</a>
+          <a class="footer-nav__link" href="#mebleria-faq">Часті питання</a>
         </li>
         <li class="footer-nav__item">
-          <a class="footer-nav__link" href="#">Відгуки</a>
+          <a class="footer-nav__link" href="#mebleria-feedback">Відгуки</a>
         </li>
       </ul>
     </nav>
@@ -540,6 +545,7 @@
             href="https://www.youtube.com/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="youtube"
           >
             <svg class="footer-social-icon footer-anim" width="24" height="24">
               <use href="/project-W3CanD01T/assets/icons-CTT8QCMD.svg#youtube"></use>
@@ -552,6 +558,7 @@
             href="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="instagram"
           >
             <svg class="footer-social-icon footer-anim" width="24" height="24">
               <use href="/project-W3CanD01T/assets/icons-CTT8QCMD.svg#instagram"></use>
@@ -564,6 +571,7 @@
             href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="facebook"
           >
             <svg class="footer-social-icon footer-anim" width="24" height="24">
               <use href="/project-W3CanD01T/assets/icons-CTT8QCMD.svg#facebook"></use>
@@ -691,6 +699,8 @@
           placeholder="+38 099 123 22 11"
           pattern="^\+?\d[\d\s]{9,14}$"
           inputmode="tel"
+          autocomplete="tel"
+          oninput="this.value = this.value.replace(/[^0-9+\-()\s]/g, '')"
           required
           data-input-phone
         />
