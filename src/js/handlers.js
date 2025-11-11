@@ -34,7 +34,7 @@ import { initOrderForm } from './order-form.js';
 export async function onCategoryClick(event) {
   const categoryEl = event.target.closest('.category-item');
 
-  if (!categoryEl) return;
+  if (!categoryEl || categoryEl.classList.contains('active')) return;
 
   setActiveCategory(categoryEl);
 
@@ -45,6 +45,8 @@ export async function onCategoryClick(event) {
     window.scrollY -
     40;
   window.scrollTo({ top, behavior: 'smooth' });
+
+  initModal(refs.modalDetails);
 }
 
 export async function getCategories() {
@@ -82,6 +84,8 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
 
     renderCard(furnitures);
     initPagination(data.totalItems, data.limit, 'all', page);
+
+    initModal(refs.modalDetails);
 
     // if (furnitures.length < limit) {
     //   refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
@@ -152,7 +156,9 @@ export async function handleLoadFeedbacks() {
       }
     });
   } catch (error) {
-    console.error('Помилка завантаження відгуків:', error);
+    refs.feedback.btnPrev.disabled = true;
+    refs.feedback.btnNext.disabled = true;
+    util.toastMessage('Не вдалося завантажити відгуки');
   } finally {
     hideLoader();
   }

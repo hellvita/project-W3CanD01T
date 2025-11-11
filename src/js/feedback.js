@@ -16,6 +16,10 @@ async function loadPartials() {
 }
 
 export async function initFeedback() {
-  await loadPartials();
-  handleLoadFeedbacks();
+  try {
+    await loadPartials();
+    handleLoadFeedbacks();
+  } catch (error) {
+    throw new Error('Не вдалося завантажити відгуки');
+  }
 }

@@ -1,17 +1,29 @@
 import { refs } from './refs';
 import { getFurnitureInfo } from './handlers';
-import { modalDetailsIsClosed } from './helpers';
+import { modalIsClosed } from './helpers';
+import { setLoadingState } from './ui-loader';
 
 export async function openModal(modalRef) {
   if (!modalRef?.backdrop) return;
 
   if (modalRef === refs.modalDetails) {
+    const currentBtn = [...modalRef.openBtn].find(
+      btn => btn.dataset.id === modalRef.furnitureId
+    );
     try {
+      setLoadingState(currentBtn, true);
+
       await getFurnitureInfo(modalRef.furnitureId);
     } catch (error) {
       console.log(error);
       throw new Error('Не вдалося завантажити дані');
+    } finally {
+      setLoadingState(currentBtn, false);
     }
+  }
+
+  if (modalRef === refs.orderModal) {
+    closeModal(refs.modalDetails);
   }
 
   modalRef.backdrop.classList.remove('is-hidden');
@@ -26,8 +38,12 @@ export function closeModal(modalRef) {
 
   modalRef.backdrop.classList.add('is-hidden');
 
-  if (modalDetailsIsClosed()) {
+  if (modalIsClosed(refs.modalDetails) && modalIsClosed(refs.orderModal)) {
     refs.body.classList.remove('no-scroll');
+  }
+
+  if (modalRef === refs.orderModal && !refs.orderModal.successOrder) {
+    openModal(refs.modalDetails);
   }
 
   window.removeEventListener('keydown', handleEsc);

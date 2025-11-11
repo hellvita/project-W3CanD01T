@@ -24,3 +24,13 @@ export function hideFurnitureLoader() {
   const cardList = refs.furnitureSection.furnitureContainer.children;
   [...cardList].forEach(card => card.classList.remove('furniture-loader'));
 }
+
+export function setLoadingState(button, isLoading) {
+  if (isLoading) {
+    button.classList.add('on-load');
+    button.disabled = true;
+  } else {
+    button.classList.remove('on-load');
+    button.disabled = false;
+  }
+}

@@ -6,6 +6,7 @@ import {
   getCheckedColor,
 } from './helpers.js';
 import { closeModal } from './modal.js';
+import { setLoadingState } from './ui-loader.js';
 
 function getFormData(form) {
   const { name, phone, comment } = form.elements;
@@ -49,27 +50,26 @@ function prepareOrderData(formData) {
   const cleanPhone = formData.phone.replace(/[()\s-]/g, '');
   const normalizedPhone = cleanPhone.replace('+', '');
 
-  return {
-    name: formData.name,
-    phone: normalizedPhone,
-    comment: formData.comment,
-    modelId: refs.orderModal.furnitureId,
-    color: getCheckedColor(),
-  };
+  const data = formData.comment
+    ? {
+        name: formData.name,
+        phone: normalizedPhone,
+        comment: formData.comment,
+        modelId: refs.orderModal.furnitureId,
+        color: getCheckedColor(),
+      }
+    : {
+        name: formData.name,
+        phone: normalizedPhone,
+        modelId: refs.orderModal.furnitureId,
+        color: getCheckedColor(),
+      };
+
+  return data;
 }
 
 async function submitOrder(orderData) {
   return await sendOrder(orderData);
-}
-
-function setLoadingState(button, isLoading) {
-  if (isLoading) {
-    button.classList.add('on-load');
-    button.disabled = true;
-  } else {
-    button.classList.remove('on-load');
-    button.disabled = false;
-  }
 }
 
 async function handleOrderSubmit(e) {
@@ -96,9 +96,11 @@ async function handleOrderSubmit(e) {
     );
 
     form.reset();
+    refs.orderModal.successOrder = true;
     closeModal(refs.orderModal);
     closeModal(refs.modalDetails);
   } catch (error) {
+    refs.orderModal.successOrder = false;
     console.error('❌ Order submission error:', error.response?.data || error);
     showErrorToast(
       error.response?.data?.message || '❌ Виникла помилка. Спробуйте пізніше.'

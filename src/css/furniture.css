@@ -147,7 +147,7 @@
 
 .tui-prev,
 .tui-next {
-  border: 1px solid rgba(8, 12, 9, 0.15);
+  border: 1px solid var(--opacity-neutral-darkest-15);
   border-radius: 100px;
   padding: 12px;
   width: 48px;

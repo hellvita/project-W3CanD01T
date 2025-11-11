@@ -63,12 +63,18 @@ export function preventScrolling() {
 }
 
 export function allowScrolling() {
+  console.log('called allowScrolling');
   refs.body.classList.remove('no-scroll');
 }
 
 export function toggleScroll() {
   if (isMobileView()) preventScrolling();
-  if (menuIsClosed) allowScrolling();
+  if (
+    menuIsClosed &&
+    modalIsClosed(refs.modalDetails) &&
+    modalIsClosed(refs.orderModal)
+  )
+    allowScrolling();
 }
 
 export function isDesktopView() {
@@ -95,6 +101,6 @@ export function getCheckedColor() {
   return checkedBtn.dataset.color;
 }
 
-export function modalDetailsIsClosed() {
-  return refs.modalDetails.backdrop.classList.contains('is-hidden');
+export function modalIsClosed(modal) {
+  return modal.backdrop.classList.contains('is-hidden');
 }

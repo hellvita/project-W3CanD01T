@@ -43,5 +43,6 @@ export const refs = {
     closeBtn: document.querySelector('[data-modal-order-close]'),
     form: document.querySelector('[data-order-form]'),
     furnitureId: null,
+    successOrder: false,
   },
 };
