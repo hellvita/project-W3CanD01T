@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import { getFurnitureInfo } from './handlers';
+import { modalDetailsIsClosed } from './helpers';
 
 export async function openModal(modalRef) {
   if (!modalRef?.backdrop) return;
@@ -24,7 +25,10 @@ export function closeModal(modalRef) {
   if (!modalRef?.backdrop) return;
 
   modalRef.backdrop.classList.add('is-hidden');
-  refs.body.classList.remove('no-scroll');
+
+  if (modalDetailsIsClosed()) {
+    refs.body.classList.remove('no-scroll');
+  }
 
   window.removeEventListener('keydown', handleEsc);
   window.activeModalRef = null;
@@ -39,6 +43,9 @@ function handleEsc(e) {
 export function initModal(modalRef) {
   if (modalRef === refs.modalDetails)
     modalRef.openBtn = document.querySelectorAll('.js-furniture-more-btn');
+  if (modalRef === refs.orderModal)
+    modalRef.openBtn = document.querySelectorAll('.js-modal-details-order-btn');
+
   modalRef.openBtn?.forEach(button =>
     button.addEventListener('click', () => {
       modalRef.furnitureId = button.dataset.id;

@@ -42,5 +42,6 @@ export const refs = {
     openBtn: null,
     closeBtn: document.querySelector('[data-modal-order-close]'),
     form: document.querySelector('[data-order-form]'),
+    furnitureId: null,
   },
 };

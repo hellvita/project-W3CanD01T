@@ -4,7 +4,6 @@ import { initFurnitureSection } from './js/furniture';
 import { initSectionFaq } from './js/faq.js';
 import { initFeedback } from './js/feedback.js';
 import { initModal } from './js/modal.js';
-import { initOrderForm } from './js/order-form.js';
 import { toastMessage } from './js/helpers.js';
 
 async function onPageLoad() {
@@ -21,9 +20,6 @@ async function onPageLoad() {
     initFeedback();
 
     initModal(refs.modalDetails);
-
-    initModal(refs.orderModal);
-    initOrderForm();
   } catch (error) {
     toastMessage(error.message);
   }

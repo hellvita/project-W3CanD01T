@@ -213,6 +213,7 @@ function renderColorModal(colors) {
                 class="color"
                 style="background-color: ${color}"
                 ${id === 0 ? 'checked' : ''}
+                data-color="${color}"
               />
             </label>
     `
