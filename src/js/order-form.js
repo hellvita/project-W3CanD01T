@@ -49,13 +49,22 @@ function prepareOrderData(formData) {
   const cleanPhone = formData.phone.replace(/[()\s-]/g, '');
   const normalizedPhone = cleanPhone.replace('+', '');
 
-  return {
-    name: formData.name,
-    phone: normalizedPhone,
-    comment: formData.comment,
-    modelId: refs.orderModal.furnitureId,
-    color: getCheckedColor(),
-  };
+  const data = formData.comment
+    ? {
+        name: formData.name,
+        phone: normalizedPhone,
+        comment: formData.comment,
+        modelId: refs.orderModal.furnitureId,
+        color: getCheckedColor(),
+      }
+    : {
+        name: formData.name,
+        phone: normalizedPhone,
+        modelId: refs.orderModal.furnitureId,
+        color: getCheckedColor(),
+      };
+
+  return data;
 }
 
 async function submitOrder(orderData) {
