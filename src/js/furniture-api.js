@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { BASE_URL, ENDPOINTS } from './constants.js';
 
-axios.defaults.baseURL = BASE_URL; 
+axios.defaults.baseURL = BASE_URL;
+
+export async function fetchFurnitureCategory() {
+  const { data } = await axios.get(ENDPOINTS.CATEGORY);
+
+  return data;
+}
 
 export async function fetchFeedback() {
   const { data } = await axios(ENDPOINTS.FEEDBACK, {
@@ -19,5 +25,3 @@ export async function sendOrder(orderData) {
     throw error;
   }
 }
-
-

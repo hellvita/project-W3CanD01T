@@ -78,3 +78,23 @@ export function isDesktopView() {
 export function isMobileView() {
   return window.innerWidth < BREAKPOINTS.tablet;
 }
+
+export function getCategoriesImages(categories) {
+  const images = {
+    [categories[0].name]: 'all-products',
+    [categories[1].name]: 'upholstered-furniture',
+    [categories[2].name]: 'cabinets-storage-systems',
+    [categories[3].name]: 'beds-mattresses',
+    [categories[4].name]: 'tables',
+    [categories[5].name]: 'chairs-stools',
+    [categories[6].name]: 'kitchens',
+    [categories[7].name]: 'furniture-nursery',
+    [categories[8].name]: 'office-furniture',
+    [categories[9].name]: 'hallway-furniture',
+    [categories[10].name]: 'bathroom-furniture',
+    [categories[11].name]: 'garden-furniture',
+    [categories[12].name]: 'decor-accessories',
+  };
+
+  return images;
+}

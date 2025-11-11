@@ -10,6 +10,23 @@ import 'swiper/css/pagination';
 import * as util from './helpers';
 import { openNavMenu, closeNavMenu } from './header-nav';
 import { openModal } from './modal.js';
+import { fetchFurnitureCategory } from './furniture-api';
+import { renderCategories } from './render-functions';
+
+export async function getCategories() {
+  try {
+    const categories = await fetchFurnitureCategory();
+
+    const allCategories = [
+      { _id: 'all', name: 'Всі категорії' },
+      ...categories,
+    ];
+
+    renderCategories(allCategories);
+  } catch (error) {
+    throw error;
+  }
+}
 
 export async function handleLoadFeedbacks() {
   showLoader();

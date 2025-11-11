@@ -2,9 +2,44 @@ import Raty from 'raty-js';
 import starOn from '../img/feedback/starOn.png';
 import starOff from '../img/feedback/starOff.png';
 import starHalf from '../img/feedback/starHalf.png';
-import { roundRating } from './helpers.js';
+import { roundRating, getCategoriesImages } from './helpers.js';
 import icons from '../img/icons.svg';
 import { refs } from './refs';
+
+export function renderCategories(categories) {
+  const images = getCategoriesImages(categories);
+
+  const markup = categories
+    .map(
+      ({ _id, name }) => `
+      <li
+        class="category-item ${_id === 'all' ? 'active' : ''}"
+        data-id="${_id}"
+      >
+        <div class="category-wrapper">
+          <picture>
+            <source
+              srcset="
+                  /img/furniture/furniture-categories/${images[name]}.webp 1x,
+                  /img/furniture/furniture-categories/${images[name]}@2x.webp 2x
+                "
+            />
+            <img
+              src="/img/furniture/furniture-categories/${images[name]}.webp"
+              alt="${name}"
+              class="category-img"
+              onerror="this.src='/img/furniture/furniture-categories/default.webp'"
+            />
+          </picture>
+          <p class="category-name">${name}</p>
+        </div>
+      </li>
+      `
+    )
+    .join('');
+
+  refs.furnitureSection.categoriesList.innerHTML = markup;
+}
 
 export function createFeedbackCard(feedback) {
   const rating = roundRating(feedback.rate);
@@ -24,7 +59,15 @@ export function renderStars() {
   const feedbackStars = document.querySelectorAll('.feedback-card__stars');
   feedbackStars.forEach(el => {
     const score = el.dataset.rating || 0;
-    const raty = new Raty(el, { number: 5, score, readOnly: true, starType: 'img', starOn, starOff, starHalf });
+    const raty = new Raty(el, {
+      number: 5,
+      score,
+      readOnly: true,
+      starType: 'img',
+      starOn,
+      starOff,
+      starHalf,
+    });
     raty.init();
   });
 }
