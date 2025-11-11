@@ -6,6 +6,7 @@ import {
   getCheckedColor,
 } from './helpers.js';
 import { closeModal } from './modal.js';
+import { setLoadingState } from './ui-loader.js';
 
 function getFormData(form) {
   const { name, phone, comment } = form.elements;
@@ -69,16 +70,6 @@ function prepareOrderData(formData) {
 
 async function submitOrder(orderData) {
   return await sendOrder(orderData);
-}
-
-function setLoadingState(button, isLoading) {
-  if (isLoading) {
-    button.classList.add('on-load');
-    button.disabled = true;
-  } else {
-    button.classList.remove('on-load');
-    button.disabled = false;
-  }
 }
 
 async function handleOrderSubmit(e) {

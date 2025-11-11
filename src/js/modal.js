@@ -1,16 +1,24 @@
 import { refs } from './refs';
 import { getFurnitureInfo } from './handlers';
 import { modalIsClosed } from './helpers';
+import { setLoadingState } from './ui-loader';
 
 export async function openModal(modalRef) {
   if (!modalRef?.backdrop) return;
 
   if (modalRef === refs.modalDetails) {
+    const currentBtn = [...modalRef.openBtn].find(
+      btn => btn.dataset.id === modalRef.furnitureId
+    );
     try {
+      setLoadingState(currentBtn, true);
+
       await getFurnitureInfo(modalRef.furnitureId);
     } catch (error) {
       console.log(error);
       throw new Error('Не вдалося завантажити дані');
+    } finally {
+      setLoadingState(currentBtn, false);
     }
   }
 
