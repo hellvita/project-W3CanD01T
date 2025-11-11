@@ -12,9 +12,24 @@ import { openNavMenu, closeNavMenu } from './header-nav';
 import { openModal } from './modal.js';
 import { fetchFurnitureCategory } from './furniture-api';
 import { renderCategories } from './render-functions';
+import {
+  hideCategoryLoader,
+  setActiveCategory,
+  showCategoryLoader,
+} from './categories.js';
+
+export function onCategoryClick(event) {
+  const categoryEl = event.target.closest('.category-item');
+
+  if (!categoryEl) return;
+
+  setActiveCategory(categoryEl);
+}
 
 export async function getCategories() {
   try {
+    showCategoryLoader();
+
     const categories = await fetchFurnitureCategory();
 
     const allCategories = [
@@ -25,6 +40,8 @@ export async function getCategories() {
     renderCategories(allCategories);
   } catch (error) {
     throw error;
+  } finally {
+    hideCategoryLoader();
   }
 }
 

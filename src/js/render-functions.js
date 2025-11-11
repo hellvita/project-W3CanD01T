@@ -11,30 +11,30 @@ export function renderCategories(categories) {
 
   const markup = categories
     .map(
-      ({ _id, name }) => `
-      <li
-        class="category-item ${_id === 'all' ? 'active' : ''}"
-        data-id="${_id}"
-      >
-        <div class="category-wrapper">
-          <picture>
-            <source
-              srcset="
-                  /img/furniture/furniture-categories/${images[name]}.webp 1x,
+      ({
+        _id,
+        name,
+      }) => `<li class="category-item ${_id === 'all' ? 'active' : ''}">
+          <div class="category-wrapper">
+            <picture>
+              <source
+                srcset="
+                  /img/furniture/furniture-categories/${images[name]}.webp    1x,
                   /img/furniture/furniture-categories/${images[name]}@2x.webp 2x
                 "
-            />
-            <img
-              src="/img/furniture/furniture-categories/${images[name]}.webp"
-              alt="${name}"
-              class="category-img"
-              onerror="this.src='/img/furniture/furniture-categories/default.webp'"
-            />
-          </picture>
-          <p class="category-name">${name}</p>
-        </div>
-      </li>
-      `
+              />
+              <img
+                src="/img/furniture/furniture-categories/${images[name]}.webp"
+                alt="${name}"
+                class="category-img ${_id === 'all' ? 'active' : ''}"
+              />
+            </picture>
+            <div class="frame"></div>
+
+            <p class="category-name">${name}</p>
+            <div class="categories-loader"></div>
+          </div>
+        </li>`
     )
     .join('');
 
