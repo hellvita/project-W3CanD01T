@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { getFurnitureInfo } from './handlers';
-import { modalDetailsIsClosed } from './helpers';
+import { modalIsClosed } from './helpers';
 
 export async function openModal(modalRef) {
   if (!modalRef?.backdrop) return;
@@ -26,7 +26,7 @@ export function closeModal(modalRef) {
 
   modalRef.backdrop.classList.add('is-hidden');
 
-  if (modalDetailsIsClosed()) {
+  if (modalIsClosed(refs.modalDetails)) {
     refs.body.classList.remove('no-scroll');
   }
 
