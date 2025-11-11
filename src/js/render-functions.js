@@ -2,7 +2,7 @@ import Raty from 'raty-js';
 import starOn from '../img/feedback/starOn.png';
 import starOff from '../img/feedback/starOff.png';
 import starHalf from '../img/feedback/starHalf.png';
-import { roundRating } from './helpers.js';
+import { customRound, roundRating } from './helpers.js';
 import { getCategoriesImages } from './category-img.js';
 import icons from '../img/icons.svg';
 import { refs } from './refs';
@@ -156,6 +156,17 @@ export function hideFaqLoader() {
 
 export function renderDetailModal(furniture) {
   const markup = `
+      <button
+      type="button"
+      class="modal-details-close"
+      id="closeModalBtn"
+      data-modal-details-close
+    >
+      <svg width="16" height="16">
+        <use href="${icons}#close-icon"></use>
+      </svg>
+    </button>
+
    <div class="modal-details-gallery">
         <img src="${furniture.images[0]}" alt="${furniture.name}" class="modal-details-big-image" />
         <div class="modal-details-subgallery">
@@ -169,7 +180,7 @@ export function renderDetailModal(furniture) {
         <p class="modal-details-category">${furniture.category.name}</p>
         <p class="modal-details-price">${furniture.price} грн</p>
 
-        <div class="modal-details-rating">★★★★★</div>
+        <div class="modal-details-rating">${renderRating(furniture.rate)}</div>
 
         <div class="modal-details-colors">
           <p class="modal-detail-color-title">Колір</p>
@@ -209,5 +220,11 @@ function renderColorModal(colors) {
     )
     .join('');
 
+  return markup;
+}
+
+function renderRating(rating) {
+  const r = customRound(rating);
+  const markup = '★'.repeat(r);
   return markup;
 }

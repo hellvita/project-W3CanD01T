@@ -69,7 +69,6 @@ export async function initPagination(
   const furniturePagination = new Pagination(paginationContainer, options);
 
   furniturePagination.on('afterMove', async event => {
-    console.log('Current page:', event.page);
     await getFurnitureCard(category, event.page);
     const top =
       refs.furnitureSection.categoriesList.getBoundingClientRect().bottom +

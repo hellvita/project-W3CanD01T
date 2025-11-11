@@ -99,7 +99,6 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
 export async function getFurnitureInfo(id) {
   try {
     const data = await fetchFurnitureById(id);
-    console.log(data);
     renderDetailModal(data);
   } catch (error) {
     throw error;
