@@ -89,3 +89,12 @@ export function customRound(num) {
     return integerPart + 1;
   }
 }
+
+export function getCheckedColor() {
+  const checkedBtn = document.querySelector('input[name="color"]:checked');
+  return checkedBtn.dataset.color;
+}
+
+export function modalDetailsIsClosed() {
+  return refs.modalDetails.backdrop.classList.contains('is-hidden');
+}

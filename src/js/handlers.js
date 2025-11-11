@@ -29,6 +29,7 @@ import { setActiveCategory } from './categories.js';
 import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
 import { initPagination } from './paginator.js';
 import { initModal } from './modal.js';
+import { initOrderForm } from './order-form.js';
 
 export async function onCategoryClick(event) {
   const categoryEl = event.target.closest('.category-item');
@@ -103,6 +104,9 @@ export async function getFurnitureInfo(id) {
     renderDetailModal(data);
     refs.modalDetails.closeBtn = document.getElementById('closeModalBtn');
     initModal(refs.modalDetails);
+
+    initModal(refs.orderModal);
+    initOrderForm();
   } catch (error) {
     throw error;
   }

@@ -1,9 +1,11 @@
-
 import { refs } from './refs.js';
 import { sendOrder } from './furniture-api.js';
-import { showSuccessToast, showErrorToast } from './helpers.js';
+import {
+  showSuccessToast,
+  showErrorToast,
+  getCheckedColor,
+} from './helpers.js';
 import { closeModal } from './modal.js';
-
 
 function getFormData(form) {
   const { name, phone, comment } = form.elements;
@@ -15,7 +17,6 @@ function getFormData(form) {
     color: form.dataset.color,
   };
 }
-
 
 function validateName(name, form) {
   const nameRegex = /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ'’\-\s]+$/u;
@@ -30,7 +31,7 @@ function validateName(name, form) {
 
 function validatePhone(phone, form) {
   const cleanPhone = phone.replace(/[()\s-]/g, '');
-  const phoneRegex = /^\+?(?:[0-9] ?){6,14}[0-9]$/; 
+  const phoneRegex = /^\+?(?:[0-9] ?){6,14}[0-9]$/;
 
   if (!phoneRegex.test(cleanPhone)) {
     form.elements.phone.classList.add('error');
@@ -44,25 +45,22 @@ function validatePhone(phone, form) {
   return true;
 }
 
-
 function prepareOrderData(formData) {
   const cleanPhone = formData.phone.replace(/[()\s-]/g, '');
-  const normalizedPhone = cleanPhone.replace('+', ''); 
+  const normalizedPhone = cleanPhone.replace('+', '');
 
   return {
     name: formData.name,
     phone: normalizedPhone,
     comment: formData.comment,
-    modelId: formData.modelId,
-    color: formData.color,
+    modelId: refs.orderModal.furnitureId,
+    color: getCheckedColor(),
   };
 }
-
 
 async function submitOrder(orderData) {
   return await sendOrder(orderData);
 }
-
 
 function setLoadingState(button, isLoading) {
   if (isLoading) {
@@ -82,33 +80,30 @@ async function handleOrderSubmit(e) {
 
   const formData = getFormData(form);
 
-  
   const isNameValid = validateName(formData.name, form);
   const isPhoneValid = validatePhone(formData.phone, form);
   if (!isNameValid || !isPhoneValid) return;
 
-  
   const orderData = prepareOrderData(formData);
 
-  
   setLoadingState(submitBtn, true);
 
   try {
-   
     await submitOrder(orderData);
 
-    showSuccessToast(`✅ Дякуємо, ${formData.name}! Ми скоро зв’яжемось із вами.`);
+    showSuccessToast(
+      `✅ Дякуємо, ${formData.name}! Ми скоро зв’яжемось із вами.`
+    );
 
     form.reset();
     closeModal(refs.orderModal);
+    closeModal(refs.modalDetails);
   } catch (error) {
     console.error('❌ Order submission error:', error.response?.data || error);
     showErrorToast(
-      error.response?.data?.message ||
-        '❌ Виникла помилка. Спробуйте пізніше.'
+      error.response?.data?.message || '❌ Виникла помилка. Спробуйте пізніше.'
     );
   } finally {
-   
     setLoadingState(submitBtn, false);
   }
 }
@@ -118,10 +113,3 @@ export function initOrderForm() {
   if (!form) return;
   form.addEventListener('submit', handleOrderSubmit);
 }
-
-
-
-
-
-
-
