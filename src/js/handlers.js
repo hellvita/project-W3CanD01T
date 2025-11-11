@@ -19,6 +19,7 @@ import { fetchFurnitureCategory, fetchFurnitureCard } from './furniture-api';
 import { renderCategories, renderCard } from './render-functions';
 import { setActiveCategory } from './categories.js';
 import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
+import { initPagination } from './paginator.js';
 
 export function onCategoryClick(event) {
   const categoryEl = event.target.closest('.category-item');
@@ -62,6 +63,7 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
     }
 
     renderCard(furnitures);
+    initPagination(data.totalItems, data.limit, 'all', page);
 
     if (furnitures.length < limit) {
       refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
