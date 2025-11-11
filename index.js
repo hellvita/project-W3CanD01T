@@ -86,7 +86,7 @@ import{a as d,i as b,R as j,P as z,S as U,N as O,b as J,A as F}from"./assets/ven
             ${Ke(e.color)}
           </div>
           <p class="modal-details-description">
-            ${e.description}.
+            ${e.description}
           </p>
 
           <p class="modal-details-dimensions">Розміри: ${e.sizes}</p>
