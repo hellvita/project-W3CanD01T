@@ -2,12 +2,14 @@ import Raty from 'raty-js';
 import starOn from '../img/feedback/starOn.png';
 import starOff from '../img/feedback/starOff.png';
 import starHalf from '../img/feedback/starHalf.png';
-import { roundRating, getCategoriesImages } from './helpers.js';
+import { roundRating } from './helpers.js';
+import { getCategoriesImages } from './category-img.js';
 import icons from '../img/icons.svg';
 import { refs } from './refs';
 
 export function renderCategories(categories) {
   const images = getCategoriesImages(categories);
+  console.log('images: ', images);
 
   const markup = categories
     .map(
@@ -19,12 +21,12 @@ export function renderCategories(categories) {
             <picture>
               <source
                 srcset="
-                  /img/furniture/furniture-categories/${images[name]}.webp    1x,
-                  /img/furniture/furniture-categories/${images[name]}@2x.webp 2x
+                  ${images[name].one}    1x,
+                  ${images[name].two} 2x
                 "
               />
               <img
-                src="/img/furniture/furniture-categories/${images[name]}.webp"
+                src="${images[name].one}"
                 alt="${name}"
                 class="category-img ${_id === 'all' ? 'active' : ''}"
               />
