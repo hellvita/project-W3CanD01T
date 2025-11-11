@@ -30,6 +30,11 @@ export async function onCategoryClick(event) {
 
   const categoryID = categoryEl.dataset.id;
   await getFurnitureCard(categoryID);
+  const top =
+    refs.furnitureSection.categoriesList.getBoundingClientRect().bottom +
+    window.scrollY -
+    40;
+  window.scrollTo({ top, behavior: 'smooth' });
 }
 
 export async function getCategories() {
