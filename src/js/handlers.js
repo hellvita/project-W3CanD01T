@@ -18,7 +18,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import * as util from './helpers';
 import { openNavMenu, closeNavMenu } from './header-nav';
-import { openModal } from './modal.js';
+import { initModal, openModal } from './modal.js';
 import {
   fetchFurnitureCategory,
   fetchFurnitureCard,
@@ -28,7 +28,6 @@ import { renderCategories, renderCard } from './render-functions';
 import { setActiveCategory } from './categories.js';
 import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
 import { initPagination } from './paginator.js';
-import { initModal } from './modal.js';
 import { initOrderForm } from './order-form.js';
 
 export async function onCategoryClick(event) {
