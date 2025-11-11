@@ -45,6 +45,10 @@
 .show-more-btn {
   width: 100%;
 }
+
+.show-more-btn.hidden {
+  display: none;
+}
 @media only screen and (min-width: 375px) {
   .furniture-list-item {
     min-height: 456px;
@@ -83,98 +87,99 @@
   }
 }
 
-
 /* Pagination */
-.furniture-pagination{
+/* .furniture-pagination {
   display: none;
+} */
+
+.furniture-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-@media only screen and (min-width: 768px) {
-  .furniture-pagination {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-  }
+.tui-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 57px;
+  height: 46px;
+  color: var(--color-neutral-darkest);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: 'Raleway Medium', sans-serif;
+  font-size: 16px;
+}
 
-  .tui-page-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 57px;
-    height: 46px;
-    color: var(--color-neutral-darkest);
-    border-radius: 100px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    font-family: "Raleway Medium", sans-serif;
-    font-size: 16px;
-  }
+.tui-page-btn:not(.tui-is-disabled):hover {
+  box-shadow:
+    0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  background: var(--color-madang-50);
+  color: var(--color-scheme-1-background);
+}
 
-  .tui-page-btn:not(.tui-is-disabled):hover {
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-      inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 32px 24px 0 var(--opacity-white-5);
-    background: var(--color-madang-50);
-    color: var(--color-scheme-1-background);
-  }
+.tui-is-selected {
+  box-shadow:
+    0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  background: var(--color-madang);
+  color: var(--color-scheme-1-background);
+}
 
-  .tui-is-selected {
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-      inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 32px 24px 0 var(--opacity-white-5);
-    background: var(--color-madang);
-    color: var(--color-scheme-1-background);
-  }
+.tui-is-disabled {
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 100px;
+  cursor: not-allowed;
+  background: var(--color-scheme-1-foreground);
+  opacity: 0.3;
+  pointer-events: none;
+}
 
-  .tui-is-disabled {
-    border: 1px solid rgba(8, 12, 9, 0.15);
-    border-radius: 100px;
-    cursor: not-allowed;
-    background: var(--color-scheme-1-foreground);
-    opacity: 0.3;
-    pointer-events: none;
-  }
+.tui-prev,
+.tui-next {
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 100px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background: var(--color-scheme-1-foreground);
+  transition: all 0.2s ease;
+}
 
-  .tui-prev,
-  .tui-next {
-    border: 1px solid rgba(8, 12, 9, 0.15);
-    border-radius: 100px;
-    padding: 12px;
-    width: 48px;
-    height: 48px;
-    background: var(--color-scheme-1-foreground);
-    transition: all 0.2s ease;
-  }
+.tui-prev:not(.tui-is-disabled):hover,
+.tui-next:not(.tui-is-disabled):hover {
+  fill: var(--color-scheme-1-background);
+  background: var(--color-madang-50);
+  box-shadow:
+    0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+}
 
-  .tui-prev:not(.tui-is-disabled):hover,
-  .tui-next:not(.tui-is-disabled):hover {
-    fill: var(--color-scheme-1-background);
-    background: var(--color-madang-50);
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-      inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 32px 24px 0 var(--opacity-white-5);
-  }
+.tui-ico-prev,
+.tui-ico-next,
+.tui-ico-first,
+.tui-ico-last,
+.tui-ico-ellip {
+  display: inline-block;
+  line-height: 1;
+}
 
-  .tui-ico-prev,
-  .tui-ico-next,
-  .tui-ico-first,
-  .tui-ico-last,
-  .tui-ico-ellip {
-    display: inline-block;
-    line-height: 1;
-  }
-
-  .tui-prev-is-more,
-  .tui-next-is-more {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
+.tui-prev-is-more,
+.tui-next-is-more {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

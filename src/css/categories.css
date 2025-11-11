@@ -88,10 +88,14 @@
 .frame {
   position: absolute;
   inset: 0;
-  border: 8px solid var(--color-madang);
+  border: 8px solid transparent;
   background: none;
   pointer-events: none;
   z-index: 1;
+}
+
+.category-item.active .frame {
+  border-color: var(--color-madang);
 }
 
 .category-name {

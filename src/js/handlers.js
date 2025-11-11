@@ -1,6 +1,11 @@
 import { fetchFeedback } from './furniture-api.js';
 import { createFeedbackCard, renderStars } from './render-functions.js';
-import { showLoader, hideLoader } from './ui-loader.js';
+import {
+  showLoader,
+  hideLoader,
+  hideFurnitureLoader,
+  showFurnitureLoader,
+} from './ui-loader.js';
 import { refs } from './refs.js';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -10,6 +15,78 @@ import 'swiper/css/pagination';
 import * as util from './helpers';
 import { openNavMenu, closeNavMenu } from './header-nav';
 import { openModal } from './modal.js';
+import { fetchFurnitureCategory, fetchFurnitureCard } from './furniture-api';
+import { renderCategories, renderCard } from './render-functions';
+import { setActiveCategory } from './categories.js';
+import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
+import { initPagination } from './paginator.js';
+
+export async function onCategoryClick(event) {
+  const categoryEl = event.target.closest('.category-item');
+
+  if (!categoryEl) return;
+
+  setActiveCategory(categoryEl);
+
+  const categoryID = categoryEl.dataset.id;
+  await getFurnitureCard(categoryID);
+  const top =
+    refs.furnitureSection.categoriesList.getBoundingClientRect().bottom +
+    window.scrollY -
+    40;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+export async function getCategories() {
+  try {
+    showCategoryLoader();
+
+    const categories = await fetchFurnitureCategory();
+
+    const allCategories = [
+      { _id: 'all', name: 'Всі категорії' },
+      ...categories,
+    ];
+
+    renderCategories(allCategories);
+  } catch (error) {
+    throw new Error('Не вдалося завантажити категорії');
+  } finally {
+    hideCategoryLoader();
+  }
+}
+
+export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
+  try {
+    showFurnitureLoader();
+
+    const data = await fetchFurnitureCard(category, page, limit);
+
+    const furnitures = data.furnitures;
+
+    if (!Array.isArray(furnitures) || furnitures.length === 0) {
+      util.toastMessage('Більше товарів немає');
+      // refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
+      return;
+    }
+
+    renderCard(furnitures);
+    initPagination(data.totalItems, data.limit, 'all', page);
+
+    // if (furnitures.length < limit) {
+    //   refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
+    // } else {
+    //   refs.furnitureSection.loadMoreBtn?.classList.remove('hidden');
+    // }
+  } catch (error) {
+    console.error('Помилка при отриманні товарів:', error);
+    util.toastMessage('Сервер не відповідає або категорія недоступна');
+    refs.loadMoreBtn?.classList.add('visually-hidden');
+    throw new Error('Не вдалося завантажити товар');
+  } finally {
+    hideFurnitureLoader();
+  }
+}
 
 export async function handleLoadFeedbacks() {
   showLoader();

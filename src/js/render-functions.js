@@ -2,9 +2,93 @@ import Raty from 'raty-js';
 import starOn from '../img/feedback/starOn.png';
 import starOff from '../img/feedback/starOff.png';
 import starHalf from '../img/feedback/starHalf.png';
-import { roundRating } from './helpers.js';
+import { roundRating, getCategoriesImages } from './helpers.js';
 import icons from '../img/icons.svg';
 import { refs } from './refs';
+
+export function renderCategories(categories) {
+  const images = getCategoriesImages(categories);
+
+  const markup = categories
+    .map(
+      ({
+        _id,
+        name,
+      }) => `<li class="category-item ${_id === 'all' ? 'active' : ''}" data-id="${_id}">
+          <div class="category-wrapper">
+            <picture>
+              <source
+                srcset="
+                  /img/furniture/furniture-categories/${images[name]}.webp    1x,
+                  /img/furniture/furniture-categories/${images[name]}@2x.webp 2x
+                "
+              />
+              <img
+                src="/img/furniture/furniture-categories/${images[name]}.webp"
+                alt="${name}"
+                class="category-img ${_id === 'all' ? 'active' : ''}"
+              />
+            </picture>
+            <div class="frame"></div>
+
+            <p class="category-name">${name}</p>
+            <div class="categories-loader"></div>
+          </div>
+        </li>`
+    )
+    .join('');
+
+  refs.furnitureSection.categoriesList.innerHTML = markup;
+}
+
+function renderColor(colors) {
+  return colors
+    .map(
+      color =>
+        `<li class="color-circle" style="background-color: ${color};"></li>`
+    )
+    .join('');
+}
+
+export function renderCard(furnitures) {
+  if (!Array.isArray(furnitures) || furnitures.length === 0) return;
+
+  const markup = furnitures
+    .map(({ _id, name, images, price, color }) => {
+      const colorMarkup = Array.isArray(color)
+        ? renderColor(color)
+        : renderColor([color]);
+      const imageSrc = images?.[0];
+      return `
+        <li class="furniture-list-item" data-id="${_id}">
+          <img class="furniture-img" src="${imageSrc}" alt="${name}" />
+          <h3 class="furniture-title">${name}</h3>
+          <ul class="furniture-color-list">${colorMarkup}</ul>
+          <p class="furniture-price">${price} грн</p>
+          <button type="button" class="furniture-more-btn button-main btn--grey">
+            Детальніше
+          </button>
+        </li>`;
+    })
+    .join('');
+
+  refs.furnitureSection.furnitureContainer.innerHTML = markup;
+}
+
+export function renderFurnitureLoader() {
+  const markup = `
+          <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+  `;
+
+  refs.furnitureSection.furnitureContainer.innerHTML = markup;
+}
 
 export function createFeedbackCard(feedback) {
   const rating = roundRating(feedback.rate);
@@ -24,7 +108,15 @@ export function renderStars() {
   const feedbackStars = document.querySelectorAll('.feedback-card__stars');
   feedbackStars.forEach(el => {
     const score = el.dataset.rating || 0;
-    const raty = new Raty(el, { number: 5, score, readOnly: true, starType: 'img', starOn, starOff, starHalf });
+    const raty = new Raty(el, {
+      number: 5,
+      score,
+      readOnly: true,
+      starType: 'img',
+      starOn,
+      starOff,
+      starHalf,
+    });
     raty.init();
   });
 }
