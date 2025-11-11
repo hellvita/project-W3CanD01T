@@ -9,6 +9,20 @@ export async function fetchFurnitureCategory() {
   return data;
 }
 
+export async function fetchFurnitureCard(
+  category = 'all',
+  page = 1,
+  limit = 8
+) {
+  const params = { page, limit };
+  if (category && category !== 'all') {
+    params.category = category;
+  }
+  const { data } = await axios.get(ENDPOINTS.FURNITURE, { params });
+
+  return data;
+}
+
 export async function fetchFeedback() {
   const { data } = await axios(ENDPOINTS.FEEDBACK, {
     params: { limit: 10 },

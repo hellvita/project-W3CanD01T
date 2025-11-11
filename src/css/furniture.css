@@ -45,6 +45,10 @@
 .show-more-btn {
   width: 100%;
 }
+
+.show-more-btn.hidden {
+  display: none;
+}
 @media only screen and (min-width: 375px) {
   .furniture-list-item {
     min-height: 456px;
@@ -83,9 +87,8 @@
   }
 }
 
-
 /* Pagination */
-.furniture-pagination{
+.furniture-pagination {
   display: none;
 }
 
@@ -107,12 +110,13 @@
     text-decoration: none;
     transition: all 0.2s ease;
     cursor: pointer;
-    font-family: "Raleway Medium", sans-serif;
+    font-family: 'Raleway Medium', sans-serif;
     font-size: 16px;
   }
 
   .tui-page-btn:not(.tui-is-disabled):hover {
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    box-shadow:
+      0 1px 2px 0 var(--opacity-neutral-darkest-5),
       inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
       inset 0 0 0 1px var(--opacity-neutral-darkest-15),
       inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
@@ -122,7 +126,8 @@
   }
 
   .tui-is-selected {
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    box-shadow:
+      0 1px 2px 0 var(--opacity-neutral-darkest-5),
       inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
       inset 0 0 0 1px var(--opacity-neutral-darkest-15),
       inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
@@ -155,7 +160,8 @@
   .tui-next:not(.tui-is-disabled):hover {
     fill: var(--color-scheme-1-background);
     background: var(--color-madang-50);
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    box-shadow:
+      0 1px 2px 0 var(--opacity-neutral-darkest-5),
       inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
       inset 0 0 0 1px var(--opacity-neutral-darkest-15),
       inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),

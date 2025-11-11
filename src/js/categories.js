@@ -6,14 +6,6 @@ export function setActiveCategory(categoryEl) {
   categoryEl.classList.add('active');
 }
 
-export function showCategoryLoader() {
-  refs.furnitureSection.categoriesList.classList.add('loading');
-}
-
-export function hideCategoryLoader() {
-  refs.furnitureSection.categoriesList.classList.remove('loading');
-}
-
 function removeActiveCategory() {
   const categoryCards = document.querySelectorAll('.category-item');
   categoryCards.forEach(item => item.classList.remove('active'));

@@ -14,7 +14,7 @@ export function renderCategories(categories) {
       ({
         _id,
         name,
-      }) => `<li class="category-item ${_id === 'all' ? 'active' : ''}">
+      }) => `<li class="category-item ${_id === 'all' ? 'active' : ''}" data-id="${_id}">
           <div class="category-wrapper">
             <picture>
               <source
@@ -39,6 +39,55 @@ export function renderCategories(categories) {
     .join('');
 
   refs.furnitureSection.categoriesList.innerHTML = markup;
+}
+
+function renderColor(colors) {
+  return colors
+    .map(
+      color =>
+        `<li class="color-circle" style="background-color: ${color};"></li>`
+    )
+    .join('');
+}
+
+export function renderCard(furnitures) {
+  if (!Array.isArray(furnitures) || furnitures.length === 0) return;
+
+  const markup = furnitures
+    .map(({ _id, name, images, price, color }) => {
+      const colorMarkup = Array.isArray(color)
+        ? renderColor(color)
+        : renderColor([color]);
+      const imageSrc = images?.[0];
+      return `
+        <li class="furniture-list-item" data-id="${_id}">
+          <img class="furniture-img" src="${imageSrc}" alt="${name}" />
+          <h3 class="furniture-title">${name}</h3>
+          <ul class="furniture-color-list">${colorMarkup}</ul>
+          <p class="furniture-price">${price} грн</p>
+          <button type="button" class="furniture-more-btn button-main btn--grey">
+            Детальніше
+          </button>
+        </li>`;
+    })
+    .join('');
+
+  refs.furnitureSection.furnitureContainer.innerHTML = markup;
+}
+
+export function renderFurnitureLoader() {
+  const markup = `
+          <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+        <li class="furniture-loader"></li>
+  `;
+
+  refs.furnitureSection.furnitureContainer.innerHTML = markup;
 }
 
 export function createFeedbackCard(feedback) {
