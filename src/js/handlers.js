@@ -58,18 +58,18 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
 
     if (!Array.isArray(furnitures) || furnitures.length === 0) {
       util.toastMessage('Більше товарів немає');
-      refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
+      // refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
       return;
     }
 
     renderCard(furnitures);
     initPagination(data.totalItems, data.limit, 'all', page);
 
-    if (furnitures.length < limit) {
-      refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
-    } else {
-      refs.furnitureSection.loadMoreBtn?.classList.remove('hidden');
-    }
+    // if (furnitures.length < limit) {
+    //   refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
+    // } else {
+    //   refs.furnitureSection.loadMoreBtn?.classList.remove('hidden');
+    // }
   } catch (error) {
     console.error('Помилка при отриманні товарів:', error);
     util.toastMessage('Сервер не відповідає або категорія недоступна');
