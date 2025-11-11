@@ -45,6 +45,8 @@ export async function onCategoryClick(event) {
     window.scrollY -
     40;
   window.scrollTo({ top, behavior: 'smooth' });
+
+  initModal(refs.modalDetails);
 }
 
 export async function getCategories() {
@@ -82,6 +84,8 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
 
     renderCard(furnitures);
     initPagination(data.totalItems, data.limit, 'all', page);
+
+    initModal(refs.modalDetails);
 
     // if (furnitures.length < limit) {
     //   refs.furnitureSection.loadMoreBtn?.classList.add('hidden');
