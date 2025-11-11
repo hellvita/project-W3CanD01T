@@ -34,7 +34,7 @@ import { initOrderForm } from './order-form.js';
 export async function onCategoryClick(event) {
   const categoryEl = event.target.closest('.category-item');
 
-  if (!categoryEl) return;
+  if (!categoryEl || categoryEl.classList.contains('active')) return;
 
   setActiveCategory(categoryEl);
 
