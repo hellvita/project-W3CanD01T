@@ -1,5 +1,5 @@
 {
-  "name": "project-W3CanD01T",
+  "name": "project-w3cand01t",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -27,5 +27,16 @@
     "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
-  }
+  },
+  "description": "",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellvita/project-W3CanD01T.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/hellvita/project-W3CanD01T/issues"
+  },
+  "homepage": "https://github.com/hellvita/project-W3CanD01T#readme"
 }

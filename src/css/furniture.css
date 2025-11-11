@@ -1,9 +1,42 @@
 .furniture-list {
-  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  list-style: none;
+  margin: 0 0 32px 0;
+  padding: 0;
+}
+
+.furniture-list .products__item {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
 }
+
+
+.furniture-list .card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.furniture-list .button-main {
+  margin-top: auto;
+  align-self: stretch;
+}
+
+
+.furniture-list-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 456px;
+}
+
+
 .furniture-img {
   width: 100%;
   border-radius: 8px;
@@ -11,6 +44,7 @@
   object-fit: cover;
   object-position: center;
 }
+
 .furniture-title {
   font-family: 'Raleway SemiBold', sans-serif;
   font-size: 18px;
@@ -18,12 +52,14 @@
   color: var(--color-scheme-1-text);
   margin-bottom: 8px;
 }
+
 .furniture-color-list {
   display: flex;
   gap: 16px;
   list-style: none;
   margin-bottom: 8px;
 }
+
 .color-circle {
   display: inline-block;
   width: 24px;
@@ -32,6 +68,7 @@
   border: 2px solid transparent;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
 }
+
 .furniture-price {
   font-family: 'Raleway SemiBold', sans-serif;
   font-size: 20px;
@@ -39,9 +76,12 @@
   color: var(--color-scheme-1-text);
   margin-bottom: 16px;
 }
+
+
 .furniture-more-btn {
   width: 100%;
 }
+
 .show-more-btn {
   width: 100%;
 }
@@ -49,48 +89,42 @@
 .show-more-btn.hidden {
   display: none;
 }
-@media only screen and (min-width: 375px) {
-  .furniture-list-item {
-    min-height: 456px;
-  }
-  .furniture-img {
-    height: 278px;
-  }
-} /* Styles for Tablet devices */
+
 @media only screen and (min-width: 768px) {
   .furniture-list {
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
+
   .furniture-list-item {
-    width: calc((100% - 24px) / 2);
     min-height: 460px;
   }
+
   .furniture-img {
     height: 282px;
   }
+
   .show-more-btn {
     display: none;
   }
-} /* Styles for Desktop devices */
+}
+
+
 @media only screen and (min-width: 1440px) {
   .furniture-list {
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 24px;
     row-gap: 40px;
   }
+
   .furniture-list-item {
     min-height: 435px;
-    width: calc((100% - 72px) / 4);
   }
+
   .furniture-img {
     height: 257px;
   }
 }
-
-/* Pagination */
-/* .furniture-pagination {
-  display: none;
-} */
 
 .furniture-pagination {
   display: flex;
