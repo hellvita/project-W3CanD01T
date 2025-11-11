@@ -156,7 +156,9 @@ export async function handleLoadFeedbacks() {
       }
     });
   } catch (error) {
-    console.error('Помилка завантаження відгуків:', error);
+    refs.feedback.btnPrev.disabled = true;
+    refs.feedback.btnNext.disabled = true;
+    util.toastMessage('Не вдалося завантажити відгуки');
   } finally {
     hideLoader();
   }
