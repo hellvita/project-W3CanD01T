@@ -57,3 +57,16 @@ export function initModal(modalRef) {
     if (e.target === modalRef.backdrop) closeModal(modalRef);
   });
 }
+document.body.addEventListener('click', e => {
+  const btn = e.target.closest('.js-furniture-more-btn');
+  if (!btn) return;
+
+  const id = btn.dataset.id;
+  if (!id) {
+    console.warn('Відсутній data-id');
+    return;
+  }
+
+  refs.modalDetails.furnitureId = id;
+  openModal(refs.modalDetails);
+});

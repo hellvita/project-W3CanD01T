@@ -24,6 +24,7 @@ export async function fetchFurnitureCard(
 }
 
 export async function fetchFurnitureById(id) {
+ 
   const { data } = await axios.get(`${ENDPOINTS.FURNITURE}/${id}`);
 
   return data;
