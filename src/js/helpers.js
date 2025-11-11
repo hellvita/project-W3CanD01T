@@ -82,18 +82,18 @@ export function isMobileView() {
 export function getCategoriesImages(categories) {
   const images = {
     [categories[0].name]: 'all-products',
-    [categories[1].name]: 'upholstered-furniture',
-    [categories[2].name]: 'cabinets-storage-systems',
-    [categories[3].name]: 'beds-mattresses',
+    [categories[1].name]: 'hallway-furniture',
+    [categories[2].name]: 'kitchens',
+    [categories[3].name]: 'garden-furniture', //
     [categories[4].name]: 'tables',
-    [categories[5].name]: 'chairs-stools',
-    [categories[6].name]: 'kitchens',
-    [categories[7].name]: 'furniture-nursery',
-    [categories[8].name]: 'office-furniture',
-    [categories[9].name]: 'hallway-furniture',
-    [categories[10].name]: 'bathroom-furniture',
-    [categories[11].name]: 'garden-furniture',
-    [categories[12].name]: 'decor-accessories',
+    [categories[5].name]: 'upholstered-furniture',
+    [categories[6].name]: 'furniture-nursery',
+    [categories[7].name]: 'decor-accessories',
+    [categories[8].name]: 'bathroom-furniture',
+    [categories[9].name]: 'office-furniture',
+    [categories[10].name]: 'cabinets-storage-systems',
+    [categories[11].name]: 'beds-mattresses',
+    [categories[12].name]: 'chairs-stools',
   };
 
   return images;

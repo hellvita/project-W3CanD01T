@@ -21,12 +21,15 @@ import { setActiveCategory } from './categories.js';
 import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
 import { initPagination } from './paginator.js';
 
-export function onCategoryClick(event) {
+export async function onCategoryClick(event) {
   const categoryEl = event.target.closest('.category-item');
 
   if (!categoryEl) return;
 
   setActiveCategory(categoryEl);
+
+  const categoryID = categoryEl.dataset.id;
+  await getFurnitureCard(categoryID);
 }
 
 export async function getCategories() {
