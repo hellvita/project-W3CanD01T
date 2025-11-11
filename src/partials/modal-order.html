@@ -33,7 +33,7 @@
           name="phone"
           class="form-input"
           placeholder="+38 099 123 22 11"
-          pattern="^\+?[0-9\s\-()]{7,20}$"
+          pattern="^\+?\d[\d\s]{9,14}$"
           inputmode="tel"
           autocomplete="tel"
           oninput="this.value = this.value.replace(/[^0-9+\-()\s]/g, '')"

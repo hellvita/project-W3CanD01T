@@ -96,9 +96,11 @@ async function handleOrderSubmit(e) {
     );
 
     form.reset();
+    refs.orderModal.successOrder = true;
     closeModal(refs.orderModal);
     closeModal(refs.modalDetails);
   } catch (error) {
+    refs.orderModal.successOrder = false;
     console.error('❌ Order submission error:', error.response?.data || error);
     showErrorToast(
       error.response?.data?.message || '❌ Виникла помилка. Спробуйте пізніше.'

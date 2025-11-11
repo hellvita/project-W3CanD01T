@@ -14,6 +14,10 @@ export async function openModal(modalRef) {
     }
   }
 
+  if (modalRef === refs.orderModal) {
+    closeModal(refs.modalDetails);
+  }
+
   modalRef.backdrop.classList.remove('is-hidden');
   refs.body.classList.add('no-scroll');
 
@@ -26,8 +30,12 @@ export function closeModal(modalRef) {
 
   modalRef.backdrop.classList.add('is-hidden');
 
-  if (modalIsClosed(refs.modalDetails)) {
+  if (modalIsClosed(refs.modalDetails) && modalIsClosed(refs.orderModal)) {
     refs.body.classList.remove('no-scroll');
+  }
+
+  if (modalRef === refs.orderModal && !refs.orderModal.successOrder) {
+    openModal(refs.modalDetails);
   }
 
   window.removeEventListener('keydown', handleEsc);
