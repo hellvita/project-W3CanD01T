@@ -23,6 +23,12 @@ export async function fetchFurnitureCard(
   return data;
 }
 
+export async function fetchFurnitureById(id) {
+  const { data } = await axios.get(`${ENDPOINTS.FURNITURE}/${id}`);
+
+  return data;
+}
+
 export async function fetchFeedback() {
   const { data } = await axios(ENDPOINTS.FEEDBACK, {
     params: { limit: 10 },

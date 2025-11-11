@@ -5,21 +5,28 @@ import { initSectionFaq } from './js/faq.js';
 import { initFeedback } from './js/feedback.js';
 import { initModal } from './js/modal.js';
 import { initOrderForm } from './js/order-form.js';
+import { toastMessage } from './js/helpers.js';
 
 async function onPageLoad() {
-  if (typeof loadPartials === 'function') {
-    await loadPartials();
+  try {
+    if (typeof loadPartials === 'function') {
+      await loadPartials();
+    }
+
+    initHeaderNav();
+
+    await initFurnitureSection();
+
+    await initSectionFaq();
+    initFeedback();
+
+    initModal(refs.modalDetails);
+
+    initModal(refs.orderModal);
+    initOrderForm();
+  } catch (error) {
+    toastMessage(error.message);
   }
-
-  initHeaderNav();
-
-  initFurnitureSection();
-
-  await initSectionFaq();
-  initFeedback();
-
-  initModal(refs.orderModal);
-  initOrderForm();
 }
 
 document.addEventListener('DOMContentLoaded', onPageLoad);

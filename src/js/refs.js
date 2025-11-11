@@ -29,9 +29,17 @@ export const refs = {
     btnPrev: document.querySelector('.feedback-btn-prev'),
   },
 
+  modalDetails: {
+    backdrop: document.querySelector('[data-modal-details]'),
+    modalContent: document.querySelector('[data-modal-details-content]'),
+    closeBtn: document.querySelector('[data-modal-details-close]'),
+    openBtn: null,
+    furnitureId: null,
+  },
+
   orderModal: {
     backdrop: document.querySelector('[data-modal-order]'),
-    openBtn: document.querySelector('[data-modal-order-open]'),
+    openBtn: null,
     closeBtn: document.querySelector('[data-modal-order-close]'),
     form: document.querySelector('[data-order-form]'),
   },

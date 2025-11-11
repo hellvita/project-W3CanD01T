@@ -9,7 +9,6 @@ import { refs } from './refs';
 
 export function renderCategories(categories) {
   const images = getCategoriesImages(categories);
-  console.log('images: ', images);
 
   const markup = categories
     .map(
@@ -62,12 +61,12 @@ export function renderCard(furnitures) {
         : renderColor([color]);
       const imageSrc = images?.[0];
       return `
-        <li class="furniture-list-item" data-id="${_id}">
+        <li class="furniture-list-item">
           <img class="furniture-img" src="${imageSrc}" alt="${name}" />
           <h3 class="furniture-title">${name}</h3>
           <ul class="furniture-color-list">${colorMarkup}</ul>
           <p class="furniture-price">${price} грн</p>
-          <button type="button" class="furniture-more-btn button-main btn--grey">
+          <button type="button" class="furniture-more-btn button-main btn--grey js-furniture-more-btn" data-id="${_id}">
             Детальніше
           </button>
         </li>`;
@@ -153,4 +152,62 @@ export function showFaqLoader() {
 export function hideFaqLoader() {
   refs.faqSection.faqLoader.classList.remove('faq-loader');
   refs.faqSection.faqBlock.classList.remove('no-active');
+}
+
+export function renderDetailModal(furniture) {
+  const markup = `
+   <div class="modal-details-gallery">
+        <img src="${furniture.images[0]}" alt="${furniture.name}" class="modal-details-big-image" />
+        <div class="modal-details-subgallery">
+          <img src="${furniture.images[1]}" alt="${furniture.name}" class="modal-details-small-image" />
+          <img src="${furniture.images[2]}" alt="${furniture.name}" class="modal-details-small-image" />
+        </div>
+      </div>
+
+      <div class="modal-details-info">
+        <h2 class="modal-details-title">${furniture.name}</h2>
+        <p class="modal-details-category">${furniture.category.name}</p>
+        <p class="modal-details-price">${furniture.price} грн</p>
+
+        <div class="modal-details-rating">★★★★★</div>
+
+        <div class="modal-details-colors">
+          <p class="modal-detail-color-title">Колір</p>
+          <div class="modal-detail-color-options">
+            ${renderColorModal(furniture.color)}
+          </div>
+          <p class="modal-details-description">
+            ${furniture.description}.
+          </p>
+
+          <p class="modal-details-dimensions">Розміри: ${furniture.sizes}</p>
+
+          <button class="modal-details-order-btn button-main btn--red js-modal-details-order-btn" data-id="${furniture._id}">
+            Перейти до замовлення
+          </button>
+        </div>
+      </div>
+  `;
+
+  refs.modalDetails.modalContent.innerHTML = markup;
+}
+
+function renderColorModal(colors) {
+  const markup = colors
+    .map(
+      (color, id) => `
+     <label>
+              <input
+                type="radio"
+                name="color"
+                class="color"
+                style="background-color: ${color}"
+                ${id === 0 ? 'checked' : ''}
+              />
+            </label>
+    `
+    )
+    .join('');
+
+  return markup;
 }

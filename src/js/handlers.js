@@ -1,5 +1,9 @@
 import { fetchFeedback } from './furniture-api.js';
-import { createFeedbackCard, renderStars } from './render-functions.js';
+import {
+  createFeedbackCard,
+  renderStars,
+  renderDetailModal,
+} from './render-functions.js';
 import {
   showLoader,
   hideLoader,
@@ -15,7 +19,11 @@ import 'swiper/css/pagination';
 import * as util from './helpers';
 import { openNavMenu, closeNavMenu } from './header-nav';
 import { openModal } from './modal.js';
-import { fetchFurnitureCategory, fetchFurnitureCard } from './furniture-api';
+import {
+  fetchFurnitureCategory,
+  fetchFurnitureCard,
+  fetchFurnitureById,
+} from './furniture-api';
 import { renderCategories, renderCard } from './render-functions';
 import { setActiveCategory } from './categories.js';
 import { hideCategoryLoader, showCategoryLoader } from './ui-loader.js';
@@ -85,6 +93,16 @@ export async function getFurnitureCard(category = 'all', page = 1, limit = 8) {
     throw new Error('Не вдалося завантажити товар');
   } finally {
     hideFurnitureLoader();
+  }
+}
+
+export async function getFurnitureInfo(id) {
+  try {
+    const data = await fetchFurnitureById(id);
+    console.log(data);
+    renderDetailModal(data);
+  } catch (error) {
+    throw error;
   }
 }
 
