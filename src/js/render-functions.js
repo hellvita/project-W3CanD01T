@@ -187,7 +187,7 @@ export function renderDetailModal(furniture) {
             ${renderColorModal(furniture.color)}
           </div>
           <p class="modal-details-description">
-            ${furniture.description}.
+            ${furniture.description}
           </p>
 
           <p class="modal-details-dimensions">Розміри: ${furniture.sizes}</p>
