@@ -1,8 +1,20 @@
-export function openModal(modalRef) {
+import { refs } from './refs';
+import { getFurnitureInfo } from './handlers';
+
+export async function openModal(modalRef) {
   if (!modalRef?.backdrop) return;
 
+  if (modalRef === refs.modalDetails) {
+    try {
+      await getFurnitureInfo(modalRef.furnitureId);
+    } catch (error) {
+      console.log(error);
+      throw new Error('Не вдалося завантажити дані');
+    }
+  }
+
   modalRef.backdrop.classList.remove('is-hidden');
-  document.body.classList.add('no-scroll'); 
+  refs.body.classList.add('no-scroll');
 
   window.activeModalRef = modalRef;
   window.addEventListener('keydown', handleEsc);
@@ -12,7 +24,7 @@ export function closeModal(modalRef) {
   if (!modalRef?.backdrop) return;
 
   modalRef.backdrop.classList.add('is-hidden');
-  document.body.classList.remove('no-scroll'); 
+  refs.body.classList.remove('no-scroll');
 
   window.removeEventListener('keydown', handleEsc);
   window.activeModalRef = null;
@@ -25,13 +37,16 @@ function handleEsc(e) {
 }
 
 export function initModal(modalRef) {
-  modalRef.openBtn?.addEventListener('click', () => openModal(modalRef));
+  if (modalRef === refs.modalDetails)
+    modalRef.openBtn = document.querySelectorAll('.js-furniture-more-btn');
+  modalRef.openBtn?.forEach(button =>
+    button.addEventListener('click', () => {
+      modalRef.furnitureId = button.dataset.id;
+      openModal(modalRef);
+    })
+  );
   modalRef.closeBtn?.addEventListener('click', () => closeModal(modalRef));
   modalRef.backdrop?.addEventListener('click', e => {
     if (e.target === modalRef.backdrop) closeModal(modalRef);
   });
 }
-
-
-
-

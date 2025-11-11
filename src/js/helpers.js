@@ -78,3 +78,14 @@ export function isDesktopView() {
 export function isMobileView() {
   return window.innerWidth < BREAKPOINTS.tablet;
 }
+
+export function customRound(num) {
+  const integerPart = Math.floor(num);
+  const decimalPart = num - integerPart;
+
+  if (decimalPart <= 0.4) {
+    return integerPart;
+  } else {
+    return integerPart + 1;
+  }
+}
