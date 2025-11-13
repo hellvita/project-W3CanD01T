@@ -27,7 +27,8 @@ export function renderCategories(categories) {
               <img
                 src="${images[name].one}"
                 alt="${name}"
-                class="category-img ${_id === 'all' ? 'active' : ''}"
+                class="category-img ${_id === 'all' ? 'active' : ''}" width:"160";
+height: "122";
               />
             </picture>
             <div class="frame"></div>
@@ -62,7 +63,8 @@ export function renderCard(furnitures) {
       const imageSrc = images?.[0];
       return `
         <li class="furniture-list-item">
-          <img class="furniture-img" src="${imageSrc}" alt="${name}" />
+          <img class="furniture-img" src="${imageSrc}" alt="${name}" width="335";
+height="277";/>
           <h3 class="furniture-title">${name}</h3>
           <ul class="furniture-color-list">${colorMarkup}</ul>
           <p class="furniture-price">${price} грн</p>
@@ -167,10 +169,13 @@ export function renderDetailModal(furniture) {
     </button>
 
    <div class="modal-details-gallery">
-        <img src="${furniture.images[0]}" alt="${furniture.name}" class="modal-details-big-image" />
+        <img src="${furniture.images[0]}" alt="${furniture.name}" class="modal-details-big-image" width="295"
+height="297";/>
         <div class="modal-details-subgallery">
-          <img src="${furniture.images[1]}" alt="${furniture.name}" class="modal-details-small-image" />
-          <img src="${furniture.images[2]}" alt="${furniture.name}" class="modal-details-small-image" />
+          <img src="${furniture.images[1]}" alt="${furniture.name}" class="modal-details-small-image" width="139"
+height="197"/>
+          <img src="${furniture.images[2]}" alt="${furniture.name}" class="modal-details-small-image" width="139"
+height="197"/>
         </div>
       </div>
 
